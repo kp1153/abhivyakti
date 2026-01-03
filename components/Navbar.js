@@ -5,103 +5,218 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const navLinks = [
+  const menu = [
     { title: "होम", href: "/" },
-    { title: "वर्तमान अंक", href: "/current-issue" },
-    { title: "पुराने अंक", href: "/archives" },
-    { title: "आयोजन", href: "/events" },
-    { title: "हमारे लेखक", href: "/authors" },
+
     {
-      title: "हिंदी साहित्य सम्मेलन",
-      href: "/#sammelan-section",
+      title: "रचनाएँ",
+      children: [
+        {
+          title: "कविता",
+          children: [
+            { title: "नई कविताएँ", href: "/poetry/new" },
+            { title: "ग़ज़ल", href: "/poetry/ghazal" },
+            { title: "गीत / नवगीत", href: "/poetry/song" },
+            { title: "प्रयोगधर्मी", href: "/poetry/experimental" },
+          ],
+        },
+        {
+          title: "कहानी",
+          children: [
+            { title: "लघुकथा", href: "/story/short-short" },
+            { title: "कहानी", href: "/story/short" },
+            { title: "लंबी कहानी", href: "/story/long" },
+          ],
+        },
+        { title: "उपन्यास अंश", href: "/novel-extracts" },
+      ],
     },
-    { title: "माध्यम पत्रिका", href: "/#about-section" },
+
+    {
+      title: "विमर्श",
+      children: [
+        { title: "आलोचना", href: "/criticism" },
+        { title: "पुस्तक समीक्षा", href: "/reviews" },
+        { title: "वैचारिक लेख", href: "/essays" },
+      ],
+    },
+
+    {
+      title: "विशेष",
+      children: [
+        { title: "अनुवाद", href: "/translation" },
+        { title: "स्त्री स्वर", href: "/stree-swar" },
+        { title: "युवा अभिव्यक्ति", href: "/young-writers" },
+        { title: "संस्मरण", href: "/memoir" },
+        { title: "साक्षात्कार", href: "/interview" },
+      ],
+    },
+
+    {
+      title: "पत्रिका",
+      children: [
+        { title: "वर्तमान अंक (वेब)", href: "/current-issue" },
+
+        {
+          title: "PDF अंक",
+          children: [
+            {
+              title: "प्रवेशांक – मार्च 2026",
+              href: "/pdf/2026/praveshank-march",
+            },
+          ],
+        },
+
+        { title: "पुरालेख (वेब)", href: "/archives" },
+        { title: "संपादकीय", href: "/editorial" },
+      ],
+    },
+
+    { title: "रचना भेजें", href: "/submit" },
+    { title: "हमारे बारे में", href: "/about" },
   ];
 
   return (
-    <header
-      className="w-full border-b-2 border-orange-600 shadow-xl"
-      style={{ background: "rgba(243, 162, 45, 1)" }}
-    >
-      <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        {/* Hamburger Button */}
+    <header className="sticky top-0 z-50 bg-[#f3a22d] border-b-2 border-orange-700 shadow-lg">
+      {/* Top Bar */}
+      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <button
+          className="lg:hidden text-2xl font-bold"
           onClick={() => setIsOpen(!isOpen)}
-          className="text-gray-900 hover:text-gray-700 transition-colors z-50 lg:hidden"
           aria-label="Menu"
         >
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
+          ☰
         </button>
 
-        {/* पत्रिका का नाम - Center */}
-        <Link
-          href="/"
-          className="absolute left-1/2 transform -translate-x-1/2 text-4xl font-bold tracking-widest text-gray-900 hover:scale-105 transition-transform duration-300"
-        >
-          माध्यम
+        <Link href="/" className="mx-auto text-center">
+          <div className="text-3xl font-extrabold tracking-wide text-gray-900">
+            अभिव्यक्ति
+          </div>
+          <div className="text-xs tracking-widest text-gray-800">
+            समय, समाज और संवेदना की आवाज़
+          </div>
         </Link>
       </nav>
 
-      {/* Desktop Menu - Hidden on Mobile */}
-      <div
-        className="hidden lg:block border-t border-orange-700 backdrop-blur-sm"
-        style={{ background: "rgba(243, 162, 45, 0.95)" }}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <div className="flex items-center justify-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-gray-900 hover:text-gray-700 hover:bg-orange-300 rounded-md font-medium transition-all duration-200 text-sm"
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
-        </div>
+      {/* Desktop Menu */}
+      <div className="hidden lg:flex justify-center border-t border-orange-700">
+        <ul className="flex gap-1 py-2">
+          {menu.map((item, i) =>
+            item.children ? (
+              <li key={i} className="relative group">
+                <span className="cursor-pointer px-4 py-2 font-medium hover:bg-orange-300 rounded-md">
+                  {item.title}
+                </span>
+
+                <ul className="absolute left-0 top-full hidden group-hover:block bg-orange-200 shadow-xl rounded-md min-w-[260px]">
+                  {item.children.map((child, j) =>
+                    child.children ? (
+                      <li key={j} className="px-4 py-2">
+                        <div className="font-semibold">{child.title}</div>
+                        <ul className="ml-3 mt-1">
+                          {child.children.map((sub, k) => (
+                            <li key={k}>
+                              <Link
+                                href={sub.href}
+                                className="block py-1 text-sm hover:underline"
+                              >
+                                {sub.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ) : (
+                      <li key={j}>
+                        <Link
+                          href={child.href}
+                          className="block px-4 py-2 hover:bg-orange-300"
+                        >
+                          {child.title}
+                        </Link>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </li>
+            ) : (
+              <li key={i}>
+                <Link
+                  href={item.href}
+                  className="px-4 py-2 font-medium hover:bg-orange-300 rounded-md"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            )
+          )}
+        </ul>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div
-          className="lg:hidden border-t-2 border-orange-600 shadow-2xl"
-          style={{ background: "rgba(243, 162, 45, 1)" }}
-        >
-          <div className="max-w-7xl mx-auto px-6 py-6 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block text-gray-900 hover:text-gray-700 hover:bg-orange-300 font-semibold py-3 px-4 rounded-lg transition-all duration-200 border border-transparent hover:border-orange-600"
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
+        <div className="lg:hidden border-t border-orange-700 bg-[#f3a22d] px-4 py-4">
+          {menu.map((item, i) => (
+            <div key={i} className="mb-2">
+              {item.children ? (
+                <>
+                  <button
+                    className="w-full text-left font-semibold py-2"
+                    onClick={() =>
+                      setOpenIndex(openIndex === i ? null : i)
+                    }
+                  >
+                    {item.title}
+                  </button>
+
+                  {openIndex === i && (
+                    <div className="ml-4 space-y-1">
+                      {item.children.map((child, j) =>
+                        child.children ? (
+                          <div key={j}>
+                            <div className="font-medium">
+                              {child.title}
+                            </div>
+                            <div className="ml-3">
+                              {child.children.map((sub, k) => (
+                                <Link
+                                  key={k}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="block text-sm py-1"
+                                >
+                                  {sub.title}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <Link
+                            key={j}
+                            href={child.href}
+                            onClick={() => setIsOpen(false)}
+                            className="block py-1"
+                          >
+                            {child.title}
+                          </Link>
+                        )
+                      )}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block font-semibold py-2"
+                >
+                  {item.title}
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
       )}
     </header>
