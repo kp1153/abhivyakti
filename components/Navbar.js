@@ -79,11 +79,11 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#f3a22d] border-b-2 border-orange-700 shadow-lg">
+    <header className="sticky top-0 z-50 bg-zinc-900 border-b-2 border-orange-700 shadow-lg">
       {/* Top Bar */}
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <button
-          className="lg:hidden text-2xl font-bold"
+          className="lg:hidden text-2xl font-bold text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Menu"
         >
@@ -91,36 +91,36 @@ export default function Navbar() {
         </button>
 
         <Link href="/" className="mx-auto text-center">
-          <div className="text-3xl font-extrabold tracking-wide text-gray-900">
+          <div className="text-3xl font-extrabold tracking-wide text-white">
             अभिव्यक्ति
           </div>
-          <div className="text-xs tracking-widest text-gray-800">
+          <div className="text-xs tracking-widest text-gray-300">
             समय, समाज और संवेदना की आवाज़
           </div>
         </Link>
       </nav>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex justify-center border-t border-orange-700">
+      <div className="hidden lg:flex justify-center border-t border-zinc-700">
         <ul className="flex gap-1 py-2">
           {menu.map((item, i) =>
             item.children ? (
               <li key={i} className="relative group">
-                <span className="cursor-pointer px-4 py-2 font-medium hover:bg-orange-300 rounded-md">
+                <span className="cursor-pointer px-4 py-2 font-medium text-white hover:bg-zinc-800 rounded-md">
                   {item.title}
                 </span>
 
-                <ul className="absolute left-0 top-full hidden group-hover:block bg-orange-200 shadow-xl rounded-md min-w-[260px]">
+                <ul className="absolute left-0 top-full hidden group-hover:block bg-zinc-800 shadow-xl rounded-md min-w-[260px]">
                   {item.children.map((child, j) =>
                     child.children ? (
                       <li key={j} className="px-4 py-2">
-                        <div className="font-semibold">{child.title}</div>
+                        <div className="font-semibold text-white">{child.title}</div>
                         <ul className="ml-3 mt-1">
                           {child.children.map((sub, k) => (
                             <li key={k}>
                               <Link
                                 href={sub.href}
-                                className="block py-1 text-sm hover:underline"
+                                className="block py-1 text-sm text-gray-300 hover:underline"
                               >
                                 {sub.title}
                               </Link>
@@ -132,7 +132,7 @@ export default function Navbar() {
                       <li key={j}>
                         <Link
                           href={child.href}
-                          className="block px-4 py-2 hover:bg-orange-300"
+                          className="block px-4 py-2 text-white hover:bg-zinc-700"
                         >
                           {child.title}
                         </Link>
@@ -145,7 +145,7 @@ export default function Navbar() {
               <li key={i}>
                 <Link
                   href={item.href}
-                  className="px-4 py-2 font-medium hover:bg-orange-300 rounded-md"
+                  className="px-4 py-2 font-medium text-white hover:bg-zinc-800 rounded-md"
                 >
                   {item.title}
                 </Link>
@@ -157,13 +157,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden border-t border-orange-700 bg-[#f3a22d] px-4 py-4">
+        <div className="lg:hidden border-t border-zinc-700 bg-zinc-900 px-4 py-4">
           {menu.map((item, i) => (
             <div key={i} className="mb-2">
               {item.children ? (
                 <>
                   <button
-                    className="w-full text-left font-semibold py-2"
+                    className="w-full text-left font-semibold py-2 text-white"
                     onClick={() =>
                       setOpenIndex(openIndex === i ? null : i)
                     }
@@ -176,7 +176,7 @@ export default function Navbar() {
                       {item.children.map((child, j) =>
                         child.children ? (
                           <div key={j}>
-                            <div className="font-medium">
+                            <div className="font-medium text-white">
                               {child.title}
                             </div>
                             <div className="ml-3">
@@ -185,7 +185,7 @@ export default function Navbar() {
                                   key={k}
                                   href={sub.href}
                                   onClick={() => setIsOpen(false)}
-                                  className="block text-sm py-1"
+                                  className="block text-sm py-1 text-gray-300"
                                 >
                                   {sub.title}
                                 </Link>
@@ -197,7 +197,7 @@ export default function Navbar() {
                             key={j}
                             href={child.href}
                             onClick={() => setIsOpen(false)}
-                            className="block py-1"
+                            className="block py-1 text-white"
                           >
                             {child.title}
                           </Link>
@@ -210,7 +210,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block font-semibold py-2"
+                  className="block font-semibold py-2 text-white"
                 >
                   {item.title}
                 </Link>
