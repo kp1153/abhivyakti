@@ -1,75 +1,65 @@
+// components/Navbar.js
 "use client";
-
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menu = [
-    { title: "होम", href: "/" },
-    { title: "कविता", href: "/kavita" },
-    { title: "कहानी", href: "/kahani" },
-    { title: "उपन्यास अंश", href: "/upanyas-ansh" },
-    { title: "यात्रा वृतांत", href: "/yatra-vritant" },
-    { title: "बाल साहित्य", href: "/bal-sahitya" },
-    { title: "हास्य व्यंग्य", href: "/hasya-vyangya" },
-    { title: "पुस्तक समीक्षा", href: "/pustak-samiksha" },
-    { title: "आत्मकथा", href: "/aatmakatha" },
-    { title: "पीडीएफ अंक", href: "/pdf" },
-    { title: "टीम", href: "/team" },
+  const navLinks = [
+    { href: "/", label: "होम" },
+    { href: "/kavita", label: "कविता" },
+    { href: "/kahani", label: "कहानी" },
+    { href: "/upanyas-ansh", label: "उपन्यास अंश" },
+    { href: "/yatra-vritant", label: "यात्रा वृतांत" },
+    { href: "/bal-sahitya", label: "बाल साहित्य" },
+    { href: "/hasya-vyangya", label: "हास्य व्यंग्य" },
+    { href: "/pustak-samiksha", label: "पुस्तक समीक्षा" },
+    { href: "/aatmakatha", label: "आत्मकथा" },
+    { href: "/pdf", label: "पीडीएफ अंक" },
+    { href: "/team", label: "टीम" },
   ];
 
   return (
-    <header className="z-50 bg-slate-800 border-b-2 border-orange-700 shadow-lg">
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <button
-          className="lg:hidden text-2xl font-bold text-white"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Menu"
-        >
-          ☰
-        </button>
+    <nav className="bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="py-4 text-center border-b border-gray-200 flex items-center justify-between md:justify-center">
+          <Link href="/" className="flex-1 md:flex-none text-center">
+            <div className="text-center">
+              <h1 className="text-4xl font-extrabold tracking-wide text-gray-900">
+                अभिव्यक्ति
+              </h1>
+              <p className="text-xs tracking-widest text-gray-600 mt-1">
+                समसामयिक साहित्य को समर्पित
+              </p>
+            </div>
+          </Link>
 
-        <Link href="/" className="mx-auto text-center">
-          <div className="text-3xl font-extrabold tracking-wide text-white">
-            अभिव्यक्ति
-          </div>
-          <div className="text-xs tracking-widest text-gray-300">
-            समसामयिक साहित्य को समर्पित
-          </div>
-        </Link>
-      </nav>
-
-      <div className="hidden lg:flex justify-center border-t border-zinc-700">
-        <ul className="flex gap-0.5 py-2 flex-wrap">
-          {menu.map((item, i) => (
-            <li key={i}>
-              <Link
-                href={item.href}
-                className="px-2.5 py-1.5 text-sm font-medium text-white hover:bg-zinc-800 rounded-md block"
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {isOpen && (
-        <div className="lg:hidden border-t border-zinc-700 bg-zinc-900 px-4 py-4">
-          {menu.map((item, i) => (
-            <Link
-              key={i}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="block font-semibold py-2 text-white hover:bg-zinc-800 rounded"
-            >
-              {item.title}
-            </Link>
-          ))}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 hover:bg-gray-100 rounded text-gray-800"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      )}
-    </header>
+        
+        <div className={`${isOpen ? "block" : "hidden"} md:block`} style={{backgroundColor: 'rgb(255, 23, 76)'}}>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-6 py-3 text-sm md:text-base text-white">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-gray-200 transition px-4 py-2 md:p-0"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }

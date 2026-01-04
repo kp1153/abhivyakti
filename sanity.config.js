@@ -1,30 +1,28 @@
-"use client";
+'use client'
 
-import { defineConfig } from "sanity";
-import { structureTool } from "sanity/structure";
-import { schema } from "./sanity/schemaTypes/index";
+/**
+ * This configuration is used to for the Sanity Studio that’s mounted on the `\app\studio\[[...tool]]\page.jsx` route
+ */
+
+import {visionTool} from '@sanity/vision'
+import {defineConfig} from 'sanity'
+import {structureTool} from 'sanity/structure'
+
+// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
+import {apiVersion, dataset, projectId} from './sanity/env'
+import {schema} from './sanity/schemaTypes'
+import {structure} from './sanity/structure'
 
 export default defineConfig({
-  projectId: "whorua5k",
-  dataset: "production",
-  apiVersion: "2023-05-03",
-  basePath: "/studio",
-
-  schema: schema,
-
+  basePath: '/studio',
+  projectId,
+  dataset,
+  // Add and edit the content schema in the './sanity/schemaTypes' folder
+  schema,
   plugins: [
-    structureTool({
-      structure: (S) =>
-        S.list()
-          .title('Abhivyakti CMS')
-          .items([
-            S.listItem()
-              .title('Posts')
-              .child(S.documentTypeList('post').title('Posts')),
-            S.listItem()
-              .title('Categories')
-              .child(S.documentTypeList('category').title('Categories')),
-          ]),
-    }),
+    structureTool({structure}),
+    // Vision is for querying with GROQ from inside the Studio
+    // https://www.sanity.io/docs/the-vision-plugin
+    visionTool({defaultApiVersion: apiVersion}),
   ],
-});
+})

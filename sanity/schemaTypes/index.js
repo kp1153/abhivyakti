@@ -5,36 +5,103 @@ function hindiToRoman(input) {
   if (!input) return "";
 
   const consonants = {
-    क: "k", ख: "kh", ग: "g", घ: "gh", ङ: "ng",
-    च: "ch", छ: "chh", ज: "j", झ: "jh", ञ: "ny",
-    ट: "t", ठ: "th", ड: "d", ढ: "dh", ण: "n",
-    त: "t", थ: "th", द: "d", ध: "dh", न: "n",
-    प: "p", फ: "ph", ब: "b", भ: "bh", म: "m",
-    य: "y", र: "r", ल: "l", व: "v", ळ: "l",
-    श: "sh", ष: "sh", स: "s", ह: "h",
-    क्ष: "ksh", त्र: "tr", ज्ञ: "gya",
+    क: "k",
+    ख: "kh",
+    ग: "g",
+    घ: "gh",
+    ङ: "ng",
+    च: "ch",
+    छ: "chh",
+    ज: "j",
+    झ: "jh",
+    ञ: "ny",
+    ट: "t",
+    ठ: "th",
+    ड: "d",
+    ढ: "dh",
+    ण: "n",
+    त: "t",
+    थ: "th",
+    द: "d",
+    ध: "dh",
+    न: "n",
+    प: "p",
+    फ: "ph",
+    ब: "b",
+    भ: "bh",
+    म: "m",
+    य: "y",
+    र: "r",
+    ल: "l",
+    व: "v",
+    ळ: "l",
+    श: "sh",
+    ष: "sh",
+    स: "s",
+    ह: "h",
+    क्ष: "ksh",
+    त्र: "tr",
+    ज्ञ: "gya",
   };
 
   const vowels = {
-    अ: "a", आ: "aa", इ: "i", ई: "ee", उ: "u",
-    ऊ: "oo", ऋ: "ri", ए: "e", ऐ: "ai", ओ: "o", औ: "au",
+    अ: "a",
+    आ: "aa",
+    इ: "i",
+    ई: "ee",
+    उ: "u",
+    ऊ: "oo",
+    ऋ: "ri",
+    ए: "e",
+    ऐ: "ai",
+    ओ: "o",
+    औ: "au",
   };
 
   const matras = {
-    "ा": "aa", "ि": "i", "ी": "ee", "ु": "u", "ू": "oo",
-    "ृ": "ri", "े": "e", "ै": "ai", "ो": "o", "ौ": "au",
+    "ा": "aa",
+    "ि": "i",
+    "ी": "ee",
+    "ु": "u",
+    "ू": "oo",
+    "ृ": "ri",
+    "े": "e",
+    "ै": "ai",
+    "ो": "o",
+    "ौ": "au",
   };
 
   const specials = {
-    "ं": "n", "ः": "h", "ँ": "n", "्": "",
+    "ं": "n",
+    "ः": "h",
+    "ँ": "n",
+    "्": "",
   };
 
   const dict = {
-    में: "mein", की: "ki", का: "ka", के: "ke", और: "aur",
-    से: "se", पर: "par", है: "hai", हुई: "hui", हुआ: "hua",
-    को: "ko", ने: "ne", एक: "ek", यह: "yah", वह: "vah",
-    था: "tha", थी: "thi", हैं: "hain", हो: "ho",
-    गया: "gaya", गई: "gayi", दिया: "diya", लिया: "liya",
+    में: "mein",
+    की: "ki",
+    का: "ka",
+    के: "ke",
+    और: "aur",
+    से: "se",
+    पर: "par",
+    है: "hai",
+    हुई: "hui",
+    हुआ: "hua",
+    को: "ko",
+    ने: "ne",
+    एक: "ek",
+    यह: "yah",
+    वह: "vah",
+    था: "tha",
+    थी: "thi",
+    हैं: "hain",
+    हो: "ho",
+    गया: "gaya",
+    गई: "gayi",
+    दिया: "diya",
+    लिया: "liya",
   };
 
   const cleaned = input
@@ -130,6 +197,19 @@ export const schema = {
           name: "name",
           title: "Category Name",
           type: "string",
+          options: {
+            list: [
+              { title: "कविता", value: "कविता" },
+              { title: "कहानी", value: "कहानी" },
+              { title: "उपन्यास अंश", value: "उपन्यास अंश" },
+              { title: "यात्रा वृतांत", value: "यात्रा वृतांत" },
+              { title: "बाल साहित्य", value: "बाल साहित्य" },
+              { title: "हास्य व्यंग्य", value: "हास्य व्यंग्य" },
+              { title: "पुस्तक समीक्षा", value: "पुस्तक समीक्षा" },
+              { title: "आत्मकथा", value: "आत्मकथा" },
+              { title: "पीडीएफ अंक", value: "पीडीएफ अंक" },
+            ],
+          },
           validation: (Rule) =>
             Rule.required().error("Category name is required"),
         },
@@ -140,7 +220,20 @@ export const schema = {
           options: {
             source: "name",
             maxLength: 96,
-            slugify: (input) => hindiToRoman(input),
+            slugify: (input) => {
+              const slugMap = {
+                "कविता": "kavita",
+                "कहानी": "kahani",
+                "उपन्यास अंश": "upanyas-ansh",
+                "यात्रा वृतांत": "yatra-vritant",
+                "बाल साहित्य": "bal-sahitya",
+                "हास्य व्यंग्य": "hasya-vyangya",
+                "पुस्तक समीक्षा": "pustak-samiksha",
+                "आत्मकथा": "aatmakatha",
+                "पीडीएफ अंक": "pdf",
+              };
+              return slugMap[input] || hindiToRoman(input);
+            },
           },
           validation: (Rule) => Rule.required().error("Slug is required"),
         },
@@ -189,141 +282,7 @@ export const schema = {
         {
           name: "content",
           title: "Content",
-          type: "array",
-          of: [
-            {
-              title: "Block",
-              type: "block",
-              styles: [
-                { title: "Normal", value: "normal" },
-                { title: "Heading 1", value: "h1" },
-                { title: "Heading 2", value: "h2" },
-                { title: "Heading 3", value: "h3" },
-                { title: "Quote", value: "blockquote" },
-              ],
-              lists: [
-                { title: "Bullet Points", value: "bullet" },
-                { title: "Numbered List", value: "number" },
-              ],
-              marks: {
-                decorators: [
-                  { title: "Bold", value: "strong" },
-                  { title: "Italic", value: "em" },
-                  { title: "Underline", value: "underline" },
-                  { title: "Pink", value: "pink" },
-                ],
-                annotations: [
-                  {
-                    title: "Link",
-                    name: "link",
-                    type: "object",
-                    fields: [
-                      {
-                        title: "URL",
-                        name: "href",
-                        type: "url",
-                        validation: (Rule) =>
-                          Rule.uri({
-                            scheme: ["http", "https", "mailto", "tel"],
-                          }),
-                      },
-                      {
-                        title: "Open in New Window",
-                        name: "blank",
-                        type: "boolean",
-                        initialValue: false,
-                      },
-                    ],
-                  },
-                ],
-              },
-            },
-            {
-              type: "object",
-              name: "cloudinaryImage",
-              title: "Image (Cloudinary)",
-              fields: [
-                {
-                  name: "url",
-                  title: "Image URL",
-                  type: "string",
-                  components: {
-                    input: CloudinaryImageInput,
-                  },
-                },
-                {
-                  name: "caption",
-                  title: "Caption",
-                  type: "string",
-                },
-              ],
-            },
-            {
-              type: "object",
-              name: "gallery",
-              title: "Photo Gallery",
-              fields: [
-                {
-                  name: "images",
-                  title: "Images",
-                  type: "array",
-                  of: [
-                    {
-                      type: "object",
-                      name: "galleryImage",
-                      fields: [
-                        {
-                          name: "url",
-                          title: "Image URL",
-                          type: "string",
-                        },
-                        {
-                          name: "alt",
-                          title: "Alt Text",
-                          type: "string",
-                        },
-                      ],
-                    },
-                  ],
-                  components: {
-                    input: MultiImageInput,
-                  },
-                  validation: (Rule) => Rule.min(1).error("Add at least one image"),
-                },
-              ],
-            },
-            {
-              type: "object",
-              name: "youtube",
-              title: "YouTube Video",
-              fields: [
-                {
-                  name: "url",
-                  title: "YouTube URL",
-                  type: "url",
-                  validation: (Rule) =>
-                    Rule.required().uri({ scheme: ["http", "https"] }),
-                },
-                {
-                  name: "caption",
-                  title: "Caption",
-                  type: "string",
-                },
-              ],
-            },
-            {
-              type: "object",
-              name: "break",
-              title: "Page Break",
-              fields: [
-                {
-                  name: "style",
-                  type: "string",
-                  options: { list: ["break", "line"] },
-                },
-              ],
-            },
-          ],
+          type: "blockContent",
           validation: (Rule) => Rule.required().error("Content is required"),
         },
         {
@@ -392,6 +351,146 @@ export const schema = {
           };
         },
       },
+    },
+
+    {
+      name: "blockContent",
+      title: "Block Content",
+      type: "array",
+      of: [
+        {
+          title: "Block",
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "Heading 1", value: "h1" },
+            { title: "Heading 2", value: "h2" },
+            { title: "Heading 3", value: "h3" },
+            { title: "Quote", value: "blockquote" },
+          ],
+          lists: [
+            { title: "Bullet Points", value: "bullet" },
+            { title: "Numbered List", value: "number" },
+          ],
+          marks: {
+            decorators: [
+              { title: "Bold", value: "strong" },
+              { title: "Italic", value: "em" },
+              { title: "Underline", value: "underline" },
+              { title: "Pink", value: "pink" },
+            ],
+            annotations: [
+              {
+                title: "Link",
+                name: "link",
+                type: "object",
+                fields: [
+                  {
+                    title: "URL",
+                    name: "href",
+                    type: "url",
+                    validation: (Rule) =>
+                      Rule.uri({
+                        scheme: ["http", "https", "mailto", "tel"],
+                      }),
+                  },
+                  {
+                    title: "Open in New Window",
+                    name: "blank",
+                    type: "boolean",
+                    initialValue: false,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          type: "object",
+          name: "cloudinaryImage",
+          title: "Image (Cloudinary)",
+          fields: [
+            {
+              name: "url",
+              title: "Image URL",
+              type: "string",
+              components: {
+                input: CloudinaryImageInput,
+              },
+            },
+            {
+              name: "caption",
+              title: "Caption",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "gallery",
+          title: "Photo Gallery",
+          fields: [
+            {
+              name: "images",
+              title: "Images",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  name: "galleryImage",
+                  fields: [
+                    {
+                      name: "url",
+                      title: "Image URL",
+                      type: "string",
+                    },
+                    {
+                      name: "alt",
+                      title: "Alt Text",
+                      type: "string",
+                    },
+                  ],
+                },
+              ],
+              components: {
+                input: MultiImageInput,
+              },
+              validation: (Rule) => Rule.min(1).error("Add at least one image"),
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "youtube",
+          title: "YouTube Video",
+          fields: [
+            {
+              name: "url",
+              title: "YouTube URL",
+              type: "url",
+              validation: (Rule) =>
+                Rule.required().uri({ scheme: ["http", "https"] }),
+            },
+            {
+              name: "caption",
+              title: "Caption",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "break",
+          title: "Page Break",
+          fields: [
+            {
+              name: "style",
+              type: "string",
+              options: { list: ["break", "line"] },
+            },
+          ],
+        },
+      ],
     },
   ],
 };

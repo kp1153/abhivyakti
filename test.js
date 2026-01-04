@@ -1,3 +1,4 @@
+require('dotenv').config({ path: '.env.local' });
 const { client } = require('./lib/sanity');
 
 client.fetch('*[_type == "post" && category->slug.current == "vividh"]{_id, title, slug, "category": category->{title, slug}}')

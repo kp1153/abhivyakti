@@ -1,3 +1,4 @@
+// app/[category]/[slug]/page.js
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,23 +9,20 @@ import { ChevronRight, Calendar, User } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-const menu = [
-  { title: "होम", href: "/" },
-  { title: "कविता", href: "/category/kavita" },
-  { title: "कहानी", href: "/category/kahani" },
-  { title: "उपन्यास अंश", href: "/category/upanyas-ansh" },
-  { title: "यात्रा वृतांत", href: "/category/yatra-vritant" },
-  { title: "बाल साहित्य", href: "/category/bal-sahitya" },
-  { title: "हास्य व्यंग्य", href: "/category/hasya-vyangya" },
-  { title: "पुस्तक समीक्षा", href: "/category/pustak-samiksha" },
-  { title: "आत्मकथा", href: "/category/aatmakatha" },
-  { title: "पीडीएफ अंक", href: "/pdf" },
-  { title: "टीम", href: "/team" },
-];
-
 const getCategoryDisplayName = (route) => {
-  const menuItem = menu.find(item => item.href === `/category/${route}` || item.href === `/${route}`);
-  return menuItem ? menuItem.title : route;
+const displayNames = {
+  kavita: "कविता",
+  kahani: "कहानी",
+  "upanyas-ansh": "उपन्यास अंश",
+  "yatra-vritant": "यात्रा वृतांत",
+  "bal-sahitya": "बाल साहित्य",
+  "hasya-vyangya": "हास्य व्यंग्य",
+  "pustak-samiksha": "पुस्तक समीक्षा",
+  aatmakatha: "आत्मकथा",
+  pdf: "पीडीएफ अंक",
+  team: "टीम",
+};
+  return displayNames[route] || route;
 };
 
 export default async function NewsPage({ params }) {
@@ -56,7 +54,7 @@ export default async function NewsPage({ params }) {
           होम
         </Link>
         <ChevronRight size={12} />
-        <Link href={`/category/${safeCategory}`} className="hover:text-[#006680]">
+        <Link href={`/${safeCategory}`} className="hover:text-[#006680]">
           {categoryDisplayName}
         </Link>
         <ChevronRight size={12} />
@@ -76,7 +74,7 @@ export default async function NewsPage({ params }) {
         <span className="flex items-center gap-1">
           <Calendar size={14} /> {formatDate(post.publishedAt)}
         </span>
-      </div>
+             </div>
 
       {post.mainImageUrl && (
         <Image

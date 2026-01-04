@@ -1,6 +1,6 @@
+// app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -15,42 +15,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "अभिव्यक्ति — समसामयिक साहित्य को समर्पित",
+  title: "हरियाणा जन संदेश | Haryana Jan Sandesh - समाचार और विश्लेषण",
   description:
-    "अभिव्यक्ति — वर्तमान रचनाकारों की आवाज़, नई प्रतिभाओं को सामने लाने का माध्यम।",
-  keywords: [
-    "अभिव्यक्ति पत्रिका",
-    "समसामयिक हिंदी साहित्य",
-    "नए लेखक",
-    "वर्तमान रचनाकार",
-    "कविता",
-    "कहानी",
-    "आलोचना",
-    "साहित्यिक पत्रिका",
-    "नवीन साहित्य",
-  ],
-  authors: [{ name: "अभिव्यक्ति सम्पादक मंडल" }],
-  creator: "अभिव्यक्ति",
-  publisher: "अभिव्यक्ति",
-  metadataBase: new URL("https://www.abhivyakti.xyz"),
-  openGraph: {
-    title: "अभिव्यक्ति — समसामयिक साहित्य को समर्पित",
-    description:
-      "वर्तमान रचनाकारों की कविता, कहानी, आलोचना और वैचारिकी का विश्वसनीय मंच।",
-    type: "website",
-    url: "https://www.abhivyakti.xyz",
-    locale: "hi_IN",
-  },
+    "हरियाणा और देश की प्रमुख खबरें, गहन विश्लेषण, राजनीतिक समाचार, और जनता की आवाज। सच्ची और निष्पक्ष पत्रकारिता का मंच।",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="hi">
+      <head>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'GA_MEASUREMENT_ID');
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        {/* Header */}
         <Navbar />
-        <main className="flex-1">{children}</main>
+
+        {/* Main content */}
+        <main className="flex-grow">{children}</main>
+
+        {/* Footer */}
         <Footer />
       </body>
     </html>
