@@ -2,50 +2,55 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t-2 border-orange-600 mt-16 bg-slate-800">
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        
-        {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-10 text-white mb-8">
-          
+    <footer className="w-full border-t-2 border-orange-600 mt-16 bg-slate-900">
+      <div className="max-w-6xl mx-auto px-6 py-12">
+
+        {/* Top Section */}
+        <div className="grid md:grid-cols-2 gap-12 text-white">
+
           {/* Editor */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-orange-400">
+          <div className="flex flex-col justify-center">
+            <h3 className="text-lg font-semibold tracking-wide text-orange-400 mb-3">
               प्रधान संपादक
             </h3>
-            <p className="font-semibold text-lg">रामचंद्र शुक्ल</p>
+
+            <p className="text-2xl font-bold tracking-wide">
+              रामचंद्र शुक्ल
+            </p>
+
+            <div className="mt-4 h-0.5 w-16 bg-orange-500" />
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-orange-400">
+            <h3 className="text-lg font-semibold tracking-wide text-orange-400 mb-4">
               संपर्क करें
             </h3>
 
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-3">
-                <span className="w-6">📧</span>
+            <div className="space-y-4 text-sm">
+              <div className="flex items-center gap-4">
+                <span className="w-6 text-lg">📧</span>
                 <a
                   href="mailto:abhivyakti1153@rediffmail.com"
-                  className="text-orange-400 hover:underline"
+                  className="text-orange-300 hover:text-orange-400 transition"
                 >
                   abhivyakti1153@rediffmail.com
                 </a>
               </div>
 
-              <div className="flex items-start gap-3">
-                <span className="w-6">📍</span>
-                <div>
+              <div className="flex items-start gap-4">
+                <span className="w-6 text-lg">📍</span>
+                <div className="leading-relaxed text-gray-300">
                   <p>548 वी/125, विक्रम नगर</p>
                   <p>पोस्ट-मानक नगर, लखनऊ-226011</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <span className="w-6">📞</span>
+              <div className="flex items-center gap-4">
+                <span className="w-6 text-lg">📞</span>
                 <a
                   href="tel:9454413842"
-                  className="text-orange-400 hover:underline"
+                  className="text-orange-300 hover:text-orange-400 transition"
                 >
                   9454413842
                 </a>
@@ -56,8 +61,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-slate-700 pt-6 text-center text-white">
-          <p className="text-sm mb-3">
+        <div className="mt-12 border-t border-slate-700 pt-6 text-center text-white">
+          <p className="text-sm mb-2">
             Passionately created by{" "}
             <Link
               href="https://www.web-developer-kp.com"
