@@ -12,5 +12,19 @@ export default defineConfig({
 
   schema: schema,
 
-  plugins: [structureTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Abhivyakti CMS')
+          .items([
+            S.listItem()
+              .title('Posts')
+              .child(S.documentTypeList('post').title('Posts')),
+            S.listItem()
+              .title('Categories')
+              .child(S.documentTypeList('category').title('Categories')),
+          ]),
+    }),
+  ],
 });

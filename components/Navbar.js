@@ -8,7 +8,7 @@ export default function Navbar() {
 
   const menu = [
     { title: "होम", href: "/" },
-    { title: "कविता", href: "/category/kavita-ghazal" },
+    { title: "कविता", href: "/category/kavita" },
     { title: "कहानी", href: "/category/kahani" },
     { title: "उपन्यास अंश", href: "/category/upanyas-ansh" },
     { title: "यात्रा वृतांत", href: "/category/yatra-vritant" },

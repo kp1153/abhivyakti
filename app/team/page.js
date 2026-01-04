@@ -101,19 +101,27 @@ export default function Team() {
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               वेबसाइट डेवलपमेंट एवं रखरखाव
             </h3>
-            <p className="text-xl font-semibold text-slate-700 mb-2">
+            <p className="text-xl font-semibold text-slate-700 mb-3">
               क्रिएटिव सॉल्यूशंस
             </p>
-            <div className="flex items-center gap-2 text-slate-600">
-              <span>🌐</span>
-              <a 
-                href="https://www.web-developer-kp.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-orange-600 hover:underline"
-              >
-                web-developer-kp.com
-              </a>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-slate-600">
+                <span>🌐</span>
+                <a 
+                  href="https://www.web-developer-kp.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-600 hover:underline"
+                >
+                  web-developer-kp.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-slate-600">
+                <span>📞</span>
+                <a href="tel:9996865069" className="text-orange-600 hover:underline">
+                  9996865069
+                </a>
+              </div>
             </div>
           </div>
         </div>

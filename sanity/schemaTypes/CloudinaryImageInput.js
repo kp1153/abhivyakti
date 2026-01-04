@@ -1,5 +1,3 @@
-// sanity/schemaTypes/CloudinaryImageInput.js
-
 import { useCallback, useState } from "react";
 import { Stack, Button, Card, Text, Spinner, Flex } from "@sanity/ui";
 import { set, unset } from "sanity";
@@ -21,26 +19,28 @@ export default function CloudinaryImageInput(props) {
       try {
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("upload_preset", "sanity");
+        formData.append(
+          "upload_preset",
+          process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+        );
         formData.append("folder", "sanity-images");
 
         const response = await fetch(
-          "https://api.cloudinary.com/v1_1/djz6rfq9v/image/upload",
+          `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
           {
             method: "POST",
             body: formData,
           }
         );
 
-        const data = await response.json();
-
         if (!response.ok) {
-          throw new Error(data.error?.message || "Upload failed");
+          throw new Error("Upload failed");
         }
 
+        const data = await response.json();
         onChange(set(data.secure_url));
       } catch (err) {
-        setError("अपलोड विफल रहा। पुनः प्रयास करें।");
+        setError("Upload failed. Please try again.");
         console.error("Cloudinary upload error:", err);
       } finally {
         setUploading(false);
@@ -75,7 +75,7 @@ export default function CloudinaryImageInput(props) {
               <Button
                 as="label"
                 mode="ghost"
-                text="नई तस्वीर चुनें"
+                text="Choose New Image"
                 tone="primary"
                 disabled={uploading}
                 style={{ flex: 1 }}
@@ -90,7 +90,7 @@ export default function CloudinaryImageInput(props) {
               </Button>
               <Button
                 mode="ghost"
-                text="डिलीट करें"
+                text="Delete"
                 tone="critical"
                 icon={TrashIcon}
                 onClick={handleDelete}
@@ -105,7 +105,7 @@ export default function CloudinaryImageInput(props) {
         <Button
           as="label"
           mode="ghost"
-          text={uploading ? "अपलोड हो रहा है..." : "तस्वीर चुनें"}
+          text={uploading ? "Uploading..." : "Choose Image"}
           tone="primary"
           disabled={uploading}
         >
@@ -123,7 +123,7 @@ export default function CloudinaryImageInput(props) {
         <Card padding={3} radius={2} shadow={1}>
           <Stack space={2}>
             <Spinner />
-            <Text size={1}>Cloudinary पर अपलोड हो रहा है...</Text>
+            <Text size={1}>Uploading to Cloudinary...</Text>
           </Stack>
         </Card>
       )}
