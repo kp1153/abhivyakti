@@ -22,15 +22,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="py-4 text-center border-b border-gray-200 flex items-center justify-between md:justify-center">
+        <div className="py-4 text-center border-b border-gray-800 flex items-center justify-between md:justify-center">
           <Link href="/" className="flex-1 md:flex-none text-center">
             <div className="text-center">
-              <h1 className="text-4xl font-extrabold tracking-wide text-gray-900">
+              <h1 className="text-4xl font-extrabold tracking-wide text-white">
                 अभिव्यक्ति
               </h1>
-              <p className="text-xs tracking-widest text-gray-600 mt-1">
+              <p className="text-xs tracking-widest text-gray-300 mt-1">
                 समसामयिक साहित्य को समर्पित
               </p>
             </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-gray-100 rounded text-gray-800"
+            className="md:hidden p-2 hover:bg-gray-800 rounded text-white"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
