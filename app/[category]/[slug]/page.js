@@ -4,7 +4,6 @@ import Link from "next/link";
 import { getPostBySlugAndCategory } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import PortableTextComponents from "@/components/PortableTextComponents";
-import ViewsCounter from "@/components/ViewsCounter";
 import { ChevronRight, Calendar, User } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -77,7 +76,6 @@ export default async function NewsPage({ params }) {
         <span className="flex items-center gap-1">
           <Calendar size={14} /> {formatDate(post.publishedAt)}
         </span>
-        <ViewsCounter slug={safeSlug} initialViews={post.views || 0} />
       </div>
 
       {post.mainImageUrl && (
