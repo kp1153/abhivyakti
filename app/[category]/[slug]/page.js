@@ -17,7 +17,7 @@ const menu = [
   { title: "बाल साहित्य", href: "/category/bal-sahitya" },
   { title: "हास्य व्यंग्य", href: "/category/hasya-vyangya" },
   { title: "पुस्तक समीक्षा", href: "/category/pustak-samiksha" },
-  { title: "विविध", href: "/category/vividh" },
+  { title: "आत्मकथा", href: "/category/aatmakatha" },
   { title: "पीडीएफ अंक", href: "/pdf" },
   { title: "टीम", href: "/team" },
 ];
