@@ -88,14 +88,7 @@ export default function Team() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              सोशल मीडिया प्रभारी
-            </h3>
-            <p className="text-xl font-semibold text-slate-700">
-              समथिंग तिवारी
-            </p>
-          </div>
+         
 
           <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">

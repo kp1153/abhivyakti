@@ -45,7 +45,7 @@ export default function Navbar() {
           </button>
         </div>
         
-        <div className={`${isOpen ? "block" : "hidden"} md:block`} style={{backgroundColor: 'rgb(255, 23, 76)'}}>
+        <div className={`${isOpen ? "block" : "hidden"} md:block bg-zinc-900`}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-6 py-3 text-sm md:text-base text-white">
             {navLinks.map((link) => (
               <Link
