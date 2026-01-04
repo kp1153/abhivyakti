@@ -8,14 +8,14 @@ export default function Navbar() {
 
   const menu = [
     { title: "होम", href: "/" },
-    { title: "कविता", href: "/category/kavita" },
-    { title: "कहानी", href: "/category/kahani" },
-    { title: "उपन्यास अंश", href: "/category/upanyas-ansh" },
-    { title: "यात्रा वृतांत", href: "/category/yatra-vritant" },
-    { title: "बाल साहित्य", href: "/category/bal-sahitya" },
-    { title: "हास्य व्यंग्य", href: "/category/hasya-vyangya" },
-    { title: "पुस्तक समीक्षा", href: "/category/pustak-samiksha" },
-    { title: "आत्मकथा", href: "/category/aatmakatha" },
+    { title: "कविता", href: "/kavita" },
+    { title: "कहानी", href: "/kahani" },
+    { title: "उपन्यास अंश", href: "/upanyas-ansh" },
+    { title: "यात्रा वृतांत", href: "/yatra-vritant" },
+    { title: "बाल साहित्य", href: "/bal-sahitya" },
+    { title: "हास्य व्यंग्य", href: "/hasya-vyangya" },
+    { title: "पुस्तक समीक्षा", href: "/pustak-samiksha" },
+    { title: "आत्मकथा", href: "/aatmakatha" },
     { title: "पीडीएफ अंक", href: "/pdf" },
     { title: "टीम", href: "/team" },
   ];
