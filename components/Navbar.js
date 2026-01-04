@@ -42,12 +42,12 @@ export default function Navbar() {
       </nav>
 
       <div className="hidden lg:flex justify-center border-t border-zinc-700">
-        <ul className="flex gap-1 py-2 flex-wrap">
+        <ul className="flex gap-0.5 py-2 flex-wrap">
           {menu.map((item, i) => (
             <li key={i}>
               <Link
                 href={item.href}
-                className="px-4 py-2 font-medium text-white hover:bg-zinc-800 rounded-md block"
+                className="px-2.5 py-1.5 text-sm font-medium text-white hover:bg-zinc-800 rounded-md block"
               >
                 {item.title}
               </Link>
