@@ -1,4 +1,3 @@
-// components/HomeContent.js
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -53,17 +52,17 @@ export default function HomeContent({ posts = [] }) {
     setCurrentSlide((prev) => (prev - 1 + sliderPosts.length) % sliderPosts.length);
   };
 
-  const bharatPosts = posts.filter(p => p.category?.slug?.current === "bharat").slice(0, 4);
-  const vishwaPosts = posts.filter(p => p.category?.slug?.current === "vishwa").slice(0, 4);
-  const punjabPosts = posts.filter(p => p.category?.slug?.current === "punjab").slice(0, 4);
-  const khelPosts = posts.filter(p => p.category?.slug?.current === "khel").slice(0, 4);
+  const kavitaPosts = posts.filter(p => p.category?.slug?.current === "kavita").slice(0, 4);
+  const kahaniPosts = posts.filter(p => p.category?.slug?.current === "kahani").slice(0, 4);
+  const upanyasAnshPosts = posts.filter(p => p.category?.slug?.current === "upanyas-ansh").slice(0, 4);
+  const yatraVritantPosts = posts.filter(p => p.category?.slug?.current === "yatra-vritant").slice(0, 4);
   const sidebarTextOnly = posts.slice(5, 13);
   const sidebarWithImage = posts.slice(13, 18);
 
   if (!posts || posts.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-8 text-center">
-        <p className="text-lg text-gray-600">कोई पोस्ट उपलब्ध नहीं है।</p>
+        <p className="text-lg text-gray-600">कोई रचना उपलब्ध नहीं है।</p>
       </div>
     );
   }
@@ -73,7 +72,7 @@ export default function HomeContent({ posts = [] }) {
       <div className="sticky top-0 z-50 bg-white shadow-sm mb-6">
         <div className="flex items-center h-10 overflow-hidden">
           <div style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white px-4 text-[10px] font-bold uppercase flex items-center h-full">
-            ताज़ा ख़बर
+            ताज़ा रचना
           </div>
           <div className="flex-1 px-4 text-xs font-semibold text-stone-700 truncate">
             • {sliderPosts[currentSlide]?.title ?? "स्वागत है"}
@@ -148,13 +147,13 @@ export default function HomeContent({ posts = [] }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-8 space-y-10">
-            {bharatPosts.length > 0 && (
+            {kavitaPosts.length > 0 && (
               <section>
                 <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
-                  भारत
+                  कविता
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {bharatPosts.map((post) => (
+                  {kavitaPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {post.mainImage ? (
@@ -173,13 +172,13 @@ export default function HomeContent({ posts = [] }) {
               </section>
             )}
 
-            {vishwaPosts.length > 0 && (
+            {kahaniPosts.length > 0 && (
               <section>
                 <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
-                  विश्व
+                  कहानी
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {vishwaPosts.map((post) => (
+                  {kahaniPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {post.mainImage ? (
@@ -198,13 +197,13 @@ export default function HomeContent({ posts = [] }) {
               </section>
             )}
 
-            {punjabPosts.length > 0 && (
+            {upanyasAnshPosts.length > 0 && (
               <section>
                 <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
-                  पंजाब
+                  उपन्यास अंश
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {punjabPosts.map((post) => (
+                  {upanyasAnshPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {post.mainImage ? (
@@ -223,13 +222,13 @@ export default function HomeContent({ posts = [] }) {
               </section>
             )}
 
-            {khelPosts.length > 0 && (
+            {yatraVritantPosts.length > 0 && (
               <section>
                 <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
-                  खेल
+                  यात्रा वृतांत
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {khelPosts.map((post) => (
+                  {yatraVritantPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {post.mainImage ? (
