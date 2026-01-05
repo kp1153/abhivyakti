@@ -252,7 +252,7 @@ export default function HomeContent({ posts = [] }) {
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-white p-4 shadow-sm">
               <h4 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-xs font-bold px-3 py-1 inline-block mb-4">
-                ताज़ा खबरें
+                ताज़ा रचनाएं
               </h4>
               <div className="space-y-3">
                 {sidebarTextOnly.map((post, idx) => (
