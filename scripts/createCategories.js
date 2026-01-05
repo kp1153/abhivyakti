@@ -19,9 +19,10 @@ const categories = [
   { name: "यात्रा वृतांत", slug: "yatra-vritant" },
   { name: "बाल साहित्य", slug: "bal-sahitya" },
   { name: "हास्य व्यंग्य", slug: "hasya-vyangya" },
-  { name: "पुस्तक समीक्षा", slug: "pustak-samiksha" },
+  { name: "समीक्षा", slug: "samiksha" },
   { name: "आत्मकथा", slug: "aatmakatha" },
-  { name: "पीडीएफ अंक", slug: "pdf" },
+  { name: "पीडीएफ", slug: "pdf" },
+  { name: "विविध", slug: "vividh" },
 ];
 
 async function createCategories() {
@@ -29,7 +30,6 @@ async function createCategories() {
 
   for (const category of categories) {
     try {
-      // Check if category already exists
       const existing = await client.fetch(
         `*[_type == "category" && slug.current == $slug][0]`,
         { slug: category.slug }
@@ -40,7 +40,6 @@ async function createCategories() {
         continue;
       }
 
-      // Create new category
       const doc = {
         _type: "category",
         name: category.name,
