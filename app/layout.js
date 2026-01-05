@@ -16,62 +16,66 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Hamara Morcha | News & Analysis",
-  description: "Hamara Morcha - Latest news from World, India, Performing Arts, Academics, Health and more. A struggle for dignity and livelihood.",
+  title: "अभिव्यक्ति | समसामयिक साहित्य को समर्पित",
+  description: "अभिव्यक्ति - हिंदी साहित्य की समसामयिक पत्रिका। कविता, कहानी, उपन्यास अंश, यात्रा वृतांत, बाल साहित्य, हास्य व्यंग्य, समीक्षा और आत्मकथा का संग्रह।",
   keywords: [
-    "Hamara Morcha",
-    "news",
-    "world news",
-    "india news",
-    "performing arts",
-    "academics",
-    "health news",
+    "अभिव्यक्ति",
+    "हिंदी साहित्य",
+    "कविता",
+    "कहानी",
+    "उपन्यास",
+    "यात्रा वृतांत",
+    "बाल साहित्य",
+    "हास्य व्यंग्य",
+    "समीक्षा",
+    "आत्मकथा",
+    "साहित्यिक पत्रिका",
   ],
-  metadataBase: new URL('https://www.hamaramorcha.com'),
+  metadataBase: new URL('https://www.abhivyakti-hindi.org'),
   openGraph: {
-    title: "Hamara Morcha",
-    description: "Latest news and analysis - A struggle for dignity and livelihood",
-    url: "https://www.hamaramorcha.com",
-    siteName: "Hamara Morcha",
+    title: "अभिव्यक्ति | समसामयिक साहित्य को समर्पित",
+    description: "हिंदी साहित्य की समसामयिक पत्रिका - कविता, कहानी, उपन्यास और विविध साहित्यिक विधाओं का संग्रह",
+    url: "https://www.abhivyakti-hindi.org",
+    siteName: "अभिव्यक्ति",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Hamara Morcha',
+        alt: 'अभिव्यक्ति - समसामयिक साहित्य को समर्पित',
       }
     ],
-    locale: "en_IN",
+    locale: "hi_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamara Morcha",
-    description: "Latest news and analysis",
+    title: "अभिव्यक्ति | समसामयिक साहित्य को समर्पित",
+    description: "हिंदी साहित्य की समसामयिक पत्रिका",
     images: ['/og-image.png'],
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="hi">
       <head>
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-1J2D3C3B0S"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-1J2D3C3B0S');
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
           `}
         </Script>
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-gray-50`}
       >
         <Navbar />
         <main className="flex-grow">{children}</main>
