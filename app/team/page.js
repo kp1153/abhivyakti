@@ -5,7 +5,8 @@ export default function Team() {
         <h1 className="text-4xl md:text-5xl font-bold text-center text-slate-800 mb-12">
           हमारी टीम
         </h1>
-        
+
+        {/* प्रधान संपादक */}
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 border-t-4 border-orange-600 mb-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-slate-800 mb-2">
@@ -21,7 +22,7 @@ export default function Team() {
               <span className="text-2xl">📧</span>
               <div>
                 <p className="font-semibold text-slate-800">ईमेल</p>
-                <a 
+                <a
                   href="mailto:abhivyakti1153@rediffmail.com"
                   className="text-orange-600 hover:underline"
                 >
@@ -43,7 +44,7 @@ export default function Team() {
               <span className="text-2xl">📞</span>
               <div>
                 <p className="font-semibold text-slate-800">संपर्क</p>
-                <a 
+                <a
                   href="tel:9454413842"
                   className="text-orange-600 hover:underline"
                 >
@@ -54,7 +55,9 @@ export default function Team() {
           </div>
         </div>
 
+        {/* अन्य टीम सदस्य */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {/* विधि सलाहकार */}
           <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               विधि सलाहकार
@@ -64,32 +67,36 @@ export default function Team() {
             </p>
             <div className="flex items-center gap-2 text-slate-600">
               <span>📞</span>
-              <a href="tel:9810357561" className="text-orange-600 hover:underline">
+              <a
+                href="tel:9810357561"
+                className="text-orange-600 hover:underline"
+              >
                 98103 57561
               </a>
             </div>
           </div>
 
+          {/* संपादक */}
           <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              ग्रैफिक डिजाइन
+              संपादक
             </h3>
             <p className="text-xl font-semibold text-slate-700 mb-2">
               वंदना शुक्ला
             </p>
             <div className="flex items-center gap-2 text-slate-600">
               <span>📧</span>
-              <a 
-                href="mailto:abhivyakti1153@rediffmail.com"
+              <a
+                href="mailto:abhivyakti1153@gmail.com"
                 className="text-orange-600 hover:underline"
               >
-                abhivyakti1153@rediffmail.com
+                abhivyakti1153@gmail.com
               </a>
             </div>
           </div>
-         
 
-          <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
+          {/* वेबसाइट डेवलपमेंट */}
+          <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 md:col-span-2">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               वेबसाइट डेवलपमेंट एवं रखरखाव
             </h3>
@@ -99,7 +106,7 @@ export default function Team() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-slate-600">
                 <span>🌐</span>
-                <a 
+                <a
                   href="https://www.web-developer-kp.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -110,7 +117,10 @@ export default function Team() {
               </div>
               <div className="flex items-center gap-2 text-slate-600">
                 <span>📞</span>
-                <a href="tel:9996865069" className="text-orange-600 hover:underline">
+                <a
+                  href="tel:9996865069"
+                  className="text-orange-600 hover:underline"
+                >
                   9996865069
                 </a>
               </div>
@@ -118,6 +128,7 @@ export default function Team() {
           </div>
         </div>
 
+        {/* टैगलाइन */}
         <div className="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-slate-300">
           <p className="text-slate-600 italic text-lg">
             "अभिव्यक्ति - समसामयिक साहित्य को समर्पित"
