@@ -14,9 +14,10 @@ const displayNames = {
   "yatra-vritant": "यात्रा वृतांत",
   "bal-sahitya": "बाल साहित्य",
   "hasya-vyangya": "हास्य व्यंग्य",
-  "pustak-samiksha": "पुस्तक समीक्षा",
+  samiksha: "समीक्षा",
   aatmakatha: "आत्मकथा",
-  pdf: "पीडीएफ अंक",
+  pdf: "पीडीएफ",
+  vividh: "विविध",
   team: "टीम",
 };
   return displayNames[route] || route;

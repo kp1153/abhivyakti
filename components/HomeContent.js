@@ -13,9 +13,10 @@ const formatCategory = (c) => {
     "yatra-vritant": "यात्रा वृतांत",
     "bal-sahitya": "बाल साहित्य",
     "hasya-vyangya": "हास्य व्यंग्य",
-    "pustak-samiksha": "पुस्तक समीक्षा",
+    samiksha: "समीक्षा",
     aatmakatha: "आत्मकथा",
-    pdf: "पीडीएफ अंक",
+    pdf: "पीडीएफ",
+    vividh: "विविध",
     team: "टीम",
   };
   return map[c] || c;
@@ -56,6 +57,10 @@ export default function HomeContent({ posts = [] }) {
   const kahaniPosts = posts.filter(p => p.category?.slug?.current === "kahani").slice(0, 4);
   const upanyasAnshPosts = posts.filter(p => p.category?.slug?.current === "upanyas-ansh").slice(0, 4);
   const yatraVritantPosts = posts.filter(p => p.category?.slug?.current === "yatra-vritant").slice(0, 4);
+  const balSahityaPosts = posts.filter(p => p.category?.slug?.current === "bal-sahitya").slice(0, 4);
+  const hasyaVyangyaPosts = posts.filter(p => p.category?.slug?.current === "hasya-vyangya").slice(0, 4);
+  const samikshaPosts = posts.filter(p => p.category?.slug?.current === "samiksha").slice(0, 4);
+  const aatmakathaPosts = posts.filter(p => p.category?.slug?.current === "aatmakatha").slice(0, 4);
   const sidebarTextOnly = posts.slice(5, 13);
   const sidebarWithImage = posts.slice(13, 18);
 
@@ -229,6 +234,106 @@ export default function HomeContent({ posts = [] }) {
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {yatraVritantPosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-[rgb(255,23,76)] mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {balSahityaPosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  बाल साहित्य
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {balSahityaPosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-[rgb(255,23,76)] mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {hasyaVyangyaPosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  हास्य व्यंग्य
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {hasyaVyangyaPosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-[rgb(255,23,76)] mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {samikshaPosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  समीक्षा
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {samikshaPosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-[rgb(255,23,76)] mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {aatmakathaPosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  आत्मकथा
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {aatmakathaPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {post.mainImage ? (

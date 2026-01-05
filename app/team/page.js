@@ -87,7 +87,6 @@ export default function Team() {
               </a>
             </div>
           </div>
-
          
 
           <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">

@@ -15,9 +15,10 @@ export default function Navbar() {
     { href: "/yatra-vritant", label: "यात्रा वृतांत" },
     { href: "/bal-sahitya", label: "बाल साहित्य" },
     { href: "/hasya-vyangya", label: "हास्य व्यंग्य" },
-    { href: "/pustak-samiksha", label: "पुस्तक समीक्षा" },
+    { href: "/samiksha", label: "समीक्षा" },
     { href: "/aatmakatha", label: "आत्मकथा" },
-    { href: "/pdf", label: "पीडीएफ अंक" },
+    { href: "/pdf", label: "पीडीएफ" },
+    { href: "/vividh", label: "विविध" },
     { href: "/team", label: "टीम" },
   ];
 

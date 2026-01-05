@@ -198,17 +198,18 @@ export const schema = {
           title: "Category Name",
           type: "string",
           options: {
-            list: [
-              { title: "कविता", value: "कविता" },
-              { title: "कहानी", value: "कहानी" },
-              { title: "उपन्यास अंश", value: "उपन्यास अंश" },
-              { title: "यात्रा वृतांत", value: "यात्रा वृतांत" },
-              { title: "बाल साहित्य", value: "बाल साहित्य" },
-              { title: "हास्य व्यंग्य", value: "हास्य व्यंग्य" },
-              { title: "पुस्तक समीक्षा", value: "पुस्तक समीक्षा" },
-              { title: "आत्मकथा", value: "आत्मकथा" },
-              { title: "पीडीएफ अंक", value: "पीडीएफ अंक" },
-            ],
+          list: [
+  { title: "कविता", value: "कविता" },
+  { title: "कहानी", value: "कहानी" },
+  { title: "उपन्यास अंश", value: "उपन्यास अंश" },
+  { title: "यात्रा वृतांत", value: "यात्रा वृतांत" },
+  { title: "बाल साहित्य", value: "बाल साहित्य" },
+  { title: "हास्य व्यंग्य", value: "हास्य व्यंग्य" },
+  { title: "समीक्षा", value: "समीक्षा" },
+  { title: "आत्मकथा", value: "आत्मकथा" },
+  { title: "पीडीएफ", value: "पीडीएफ" },
+  { title: "विविध", value: "विविध" },
+],
           },
           validation: (Rule) =>
             Rule.required().error("Category name is required"),
@@ -221,17 +222,19 @@ export const schema = {
             source: "name",
             maxLength: 96,
             slugify: (input) => {
-              const slugMap = {
-                "कविता": "kavita",
-                "कहानी": "kahani",
-                "उपन्यास अंश": "upanyas-ansh",
-                "यात्रा वृतांत": "yatra-vritant",
-                "बाल साहित्य": "bal-sahitya",
-                "हास्य व्यंग्य": "hasya-vyangya",
-                "पुस्तक समीक्षा": "pustak-samiksha",
-                "आत्मकथा": "aatmakatha",
-                "पीडीएफ अंक": "pdf",
-              };
+         const slugMap = {
+  "कविता": "kavita",
+  "कहानी": "kahani",
+  "उपन्यास अंश": "upanyas-ansh",
+  "यात्रा वृतांत": "yatra-vritant",
+  "बाल साहित्य": "bal-sahitya",
+  "हास्य व्यंग्य": "hasya-vyangya",
+  "समीक्षा": "samiksha",
+  "आत्मकथा": "aatmakatha",
+  "पीडीएफ": "pdf",
+  "विविध": "vividh",
+  "टीम": "team",
+};
               return slugMap[input] || hindiToRoman(input);
             },
           },
