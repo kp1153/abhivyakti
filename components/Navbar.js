@@ -1,8 +1,10 @@
 // components/Navbar.js
 "use client";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
+
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,16 +27,18 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="py-4 text-center border-b border-gray-800 flex items-center justify-between md:justify-center">
-          <Link href="/" className="flex-1 md:flex-none text-center">
-            <div className="text-center">
-              <h1 className="text-4xl font-extrabold tracking-wide text-white">
-                अभिव्यक्ति
-              </h1>
-              <p className="text-xs tracking-widest text-gray-300 mt-1">
-                समसामयिक साहित्य को समर्पित
-              </p>
-            </div>
+        {/* Logo + Mobile Menu Button */}
+        <div className="py-4 border-b border-gray-800 flex items-center justify-between md:justify-center">
+          <Link href="/" className="flex justify-center">
+         <Image
+  src="/logo.jpeg"
+  alt="अभिव्यक्ति"
+  width={380}
+  height={140}
+  priority
+  className="max-h-28 w-auto object-contain"
+/>
+
           </Link>
 
           <button
@@ -45,7 +49,8 @@ export default function Navbar() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        
+
+        {/* Navigation Links */}
         <div className={`${isOpen ? "block" : "hidden"} md:block bg-zinc-900`}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-6 py-3 text-sm md:text-base text-white">
             {navLinks.map((link) => (
