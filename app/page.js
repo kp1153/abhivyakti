@@ -11,7 +11,7 @@ export default async function Page() {
   if (!posts || posts.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-8 text-center">
-        <p className="text-lg text-gray-600">कोई पोस्ट उपलब्ध नहीं है।</p>
+        <p className="text-lg text-gray-600">कोई रचना उपलब्ध नहीं है।</p>
       </div>
     );
   }

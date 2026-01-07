@@ -58,16 +58,7 @@ export default async function NewsPage({ params }) {
       >
         <Edit size={18} />
         एडिट करें
-      </a>
-      <a 
-        href={`https://www.abhivyakti.xyz/studio/structure/post;${post._id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 flex items-center gap-2 z-50"
-      >
-        <Edit size={18} />
-        एडिट करें
-      </a>
+      </a>    
 
       <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6 border-b pb-3">
         <Link href="/" className="hover:text-[#006680]">
