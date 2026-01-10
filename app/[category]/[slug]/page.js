@@ -26,6 +26,39 @@ const displayNames = {
   return displayNames[route] || route;
 };
 
+export async function generateMetadata({ params }) {
+  const { category, slug } = await params;
+  const safeCategory = decodeURIComponent(category);
+  const safeSlug = decodeURIComponent(slug);
+
+  const post = await getPostBySlugAndCategory(safeSlug, safeCategory);
+  
+  if (!post) {
+    return { title: "Not Found" };
+  }
+
+  const categoryDisplayName = getCategoryDisplayName(safeCategory);
+
+  return {
+    title: `${post.title} | अभिव्यक्ति`,
+    description: post.title,
+    openGraph: {
+      title: `${post.title} | अभिव्यक्ति`,
+      description: categoryDisplayName,
+      images: [post.mainImageUrl || 'https://www.abhivyakti.xyz/logo.jpg'],
+      url: `https://www.abhivyakti.xyz/${safeCategory}/${safeSlug}`,
+      type: 'article',
+      siteName: 'अभिव्यक्ति',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | अभिव्यक्ति`,
+      description: categoryDisplayName,
+      images: [post.mainImageUrl || 'https://www.abhivyakti.xyz/logo.jpg'],
+    }
+  };
+}
+
 export default async function NewsPage({ params }) {
   const { category, slug } = await params;
   const safeCategory = decodeURIComponent(category);
