@@ -38,23 +38,38 @@ export async function generateMetadata({ params }) {
   }
 
   const categoryDisplayName = getCategoryDisplayName(safeCategory);
+  const description = `${post.title} - ${categoryDisplayName} | अभिव्यक्ति पर पढ़ें`;
+  const imageUrl = post.mainImageUrl || 'https://www.abhivyakti.xyz/og-image.png';
+  const pageUrl = `https://www.abhivyakti.xyz/${safeCategory}/${safeSlug}`;
 
   return {
+    metadataBase: new URL("https://www.abhivyakti.xyz"),
     title: `${post.title} | अभिव्यक्ति`,
-    description: post.title,
+    description: description,
     openGraph: {
       title: `${post.title} | अभिव्यक्ति`,
-      description: categoryDisplayName,
-      images: [post.mainImageUrl || 'https://www.abhivyakti.xyz/logo.jpg'],
-      url: `https://www.abhivyakti.xyz/${safeCategory}/${safeSlug}`,
+      description: description,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ],
+      url: pageUrl,
       type: 'article',
       siteName: 'अभिव्यक्ति',
+      locale: 'hi_IN',
     },
     twitter: {
       card: 'summary_large_image',
       title: `${post.title} | अभिव्यक्ति`,
-      description: categoryDisplayName,
-      images: [post.mainImageUrl || 'https://www.abhivyakti.xyz/logo.jpg'],
+      description: description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: pageUrl,
     }
   };
 }
