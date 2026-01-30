@@ -90,7 +90,7 @@ export default function Team() {
       </p>
       <div className="flex items-center gap-2 text-slate-600">
         <span>📧</span>
-        
+        <a
           href="mailto:abhivyakti1153@gmail.com"
           className="text-orange-600 hover:underline"
         >
