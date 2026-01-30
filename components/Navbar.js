@@ -1,4 +1,3 @@
-// components/Navbar.js
 "use client";
 
 import { useState } from "react";
@@ -26,38 +25,42 @@ export default function Navbar() {
 
   return (
     <nav className="bg-gray-900">
+      <style dangerouslySetInnerHTML={{__html: `
+        .menu-scroll::-webkit-scrollbar { height: 8px; }
+        .menu-scroll::-webkit-scrollbar-track { background: #7f1d1d; }
+        .menu-scroll::-webkit-scrollbar-thumb { background: #ef4444; border-radius: 6px; }
+        .menu-scroll::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+      `}} />
+
       <div className="max-w-7xl mx-auto px-4">
-        {/* Logo + Mobile Menu Button */}
         <div className="py-4 border-b border-gray-800 flex items-center justify-between md:justify-center">
           <Link href="/" className="flex justify-center">
-         <Image
-  src="/logo.jpeg"
-  alt="अभिव्यक्ति"
-  width={380}
-  height={140}
-  priority
-  className="max-h-28 w-auto object-contain"
-/>
-
+            <Image
+              src="/logo.jpeg"
+              alt="अभिव्यक्ति"
+              width={380}
+              height={140}
+              priority
+              className="max-h-28 w-auto object-contain"
+            />
           </Link>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-gray-800 rounded text-white"
+            className="lg:hidden p-2 hover:bg-gray-800 rounded text-white"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Navigation Links */}
-        <div className={`${isOpen ? "block" : "hidden"} md:block bg-zinc-900`}>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-6 py-3 text-sm md:text-base text-white">
+        <div className={`${isOpen ? "block" : "hidden"} lg:block bg-zinc-900`}>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:overflow-x-auto lg:pb-2 menu-scroll gap-3 lg:gap-4 py-3 text-sm lg:text-base text-white">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:text-gray-200 transition px-4 py-2 md:p-0"
+                className="hover:text-gray-200 transition whitespace-nowrap px-4 py-2 lg:p-2"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

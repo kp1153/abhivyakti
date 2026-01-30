@@ -76,24 +76,60 @@ export default function Team() {
             </div>
           </div>
 
-          {/* संपादक */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              संपादक
-            </h3>
-            <p className="text-xl font-semibold text-slate-700 mb-2">
-              वंदना शुक्ला
-            </p>
-            <div className="flex items-center gap-2 text-slate-600">
-              <span>📧</span>
-              <a
-                href="mailto:abhivyakti1153@gmail.com"
-                className="text-orange-600 hover:underline"
-              >
-                abhivyakti1153@gmail.com
-              </a>
-            </div>
-          </div>
+          {/* संपादक मंडल */}
+<div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 md:col-span-2">
+  <h3 className="text-2xl font-bold text-slate-800 mb-4">
+    संपादक मंडल
+  </h3>
+  
+  <div className="grid md:grid-cols-2 gap-6">
+    {/* वंदना शुक्ला */}
+    <div>
+      <p className="text-xl font-semibold text-slate-700 mb-2">
+        वंदना शुक्ला
+      </p>
+      <div className="flex items-center gap-2 text-slate-600">
+        <span>📧</span>
+        
+          href="mailto:abhivyakti1153@gmail.com"
+          className="text-orange-600 hover:underline"
+        >
+          abhivyakti1153@gmail.com
+        </a>
+      </div>
+    </div>
+
+    {/* डॉ. नृपेंद्र नारायण सिंह */}
+    <div>
+      <p className="text-xl font-semibold text-slate-700 mb-1">
+        डॉ. नृपेंद्र नारायण सिंह
+      </p>
+      <p className="text-sm text-slate-500 mb-2">
+        असिस्टेंट प्रोफेसर (Guest)
+      </p>
+      <div className="space-y-1">
+        <div className="flex items-center gap-2 text-slate-600">
+          <span>📞</span>
+          <a
+            href="tel:8787037469"
+            className="text-orange-600 hover:underline"
+          >
+            878 703 7469
+          </a>
+        </div>
+        <div className="flex items-center gap-2 text-slate-600">
+          <span>📧</span>
+          <a
+            href="mailto:dr.nripendra.nns@gmail.com"
+            className="text-orange-600 hover:underline text-sm"
+          >
+            dr.nripendra.nns@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
           {/* वेबसाइट डेवलपमेंट */}
           <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 md:col-span-2">
