@@ -100,31 +100,38 @@ export default function Team() {
     </div>
 
     {/* डॉ. नृपेंद्र नारायण सिंह */}
-    <div>
-      <p className="text-xl font-semibold text-slate-700 mb-1">
-        डॉ. नृपेंद्र नारायण सिंह
-      </p>
-      <p className="text-sm text-slate-500 mb-2">
-        असिस्टेंट प्रोफेसर (Guest)
-      </p>
-      <div className="space-y-1">
-        <div className="flex items-center gap-2 text-slate-600">
-          <span>📞</span>
-          <a
-            href="tel:8787037469"
-            className="text-orange-600 hover:underline"
-          >
-            878 703 7469
-          </a>
-        </div>
-        <div className="flex items-center gap-2 text-slate-600">
-          <span>📧</span>
-          <a
-            href="mailto:dr.nripendra.nns@gmail.com"
-            className="text-orange-600 hover:underline text-sm"
-          >
-            dr.nripendra.nns@gmail.com
-          </a>
+    <div className="flex gap-4 items-start">
+      <img 
+        src="/1.jpg" 
+        alt="डॉ. नृपेंद्र नारायण सिंह"
+        className="w-24 h-24 rounded-lg object-cover shadow-md"
+      />
+      <div>
+        <p className="text-xl font-semibold text-slate-700 mb-1">
+          डॉ. नृपेंद्र नारायण सिंह
+        </p>
+        <p className="text-sm text-slate-500 mb-2">
+          असिस्टेंट प्रोफेसर (Guest)
+        </p>
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-slate-600">
+            <span>📞</span>
+            <a
+              href="tel:8787037469"
+              className="text-orange-600 hover:underline"
+            >
+              878 703 7469
+            </a>
+          </div>
+          <div className="flex items-center gap-2 text-slate-600">
+            <span>📧</span>
+            <a
+              href="mailto:dr.nripendra.nns@gmail.com"
+              className="text-orange-600 hover:underline text-sm"
+            >
+              dr.nripendra.nns@gmail.com
+            </a>
+          </div>
         </div>
       </div>
     </div>
