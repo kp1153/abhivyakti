@@ -1,7 +1,7 @@
 export default function Team() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-slate-800 mb-12">
           हमारी टीम
         </h1>
@@ -55,118 +55,135 @@ export default function Team() {
           </div>
         </div>
 
-        {/* अन्य टीम सदस्य */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {/* विधि सलाहकार */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              विधि सलाहकार
-            </h3>
-            <p className="text-xl font-semibold text-slate-700 mb-2">
-              एडवोकेट मुर्तजा हुसैन
-            </p>
-            <div className="flex items-center gap-2 text-slate-600">
-              <span>📞</span>
-              <a
-                href="tel:9810357561"
-                className="text-orange-600 hover:underline"
-              >
-                98103 57561
-              </a>
-            </div>
-          </div>
-
-          {/* संपादक मंडल */}
-<div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 md:col-span-2">
-  <h3 className="text-2xl font-bold text-slate-800 mb-4">
-    संपादक मंडल
-  </h3>
-  
-  <div className="grid md:grid-cols-2 gap-6">
-    {/* वंदना शुक्ला */}
-    <div>
-      <p className="text-xl font-semibold text-slate-700 mb-2">
-        वंदना शुक्ला
-      </p>
-      <div className="flex items-center gap-2 text-slate-600">
-        <span>📧</span>
-        <a
-          href="mailto:abhivyakti1153@gmail.com"
-          className="text-orange-600 hover:underline"
-        >
-          abhivyakti1153@gmail.com
-        </a>
-      </div>
-    </div>
-
-    {/* डॉ. नृपेंद्र नारायण सिंह */}
-    <div className="flex gap-4 items-start">
-      <img 
-        src="/1.jpg" 
-        alt="डॉ. नृपेंद्र नारायण सिंह"
-        className="w-24 h-24 rounded-lg object-cover shadow-md"
-      />
-      <div>
-        <p className="text-xl font-semibold text-slate-700 mb-1">
-          डॉ. नृपेंद्र नारायण सिंह
-        </p>
-        <p className="text-sm text-slate-500 mb-2">
-          असिस्टेंट प्रोफेसर (Guest)
-        </p>
-        <div className="space-y-1">
+        {/* विधि सलाहकार */}
+        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 mb-6">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+            विधि सलाहकार
+          </h3>
+          <p className="text-xl font-semibold text-slate-700 mb-2">
+            एडवोकेट मुर्तजा हुसैन
+          </p>
           <div className="flex items-center gap-2 text-slate-600">
             <span>📞</span>
             <a
-              href="tel:8787037469"
+              href="tel:9810357561"
               className="text-orange-600 hover:underline"
             >
-              878 703 7469
-            </a>
-          </div>
-          <div className="flex items-center gap-2 text-slate-600">
-            <span>📧</span>
-            <a
-              href="mailto:dr.nripendra.nns@gmail.com"
-              className="text-orange-600 hover:underline text-sm"
-            >
-              dr.nripendra.nns@gmail.com
+              98103 57561
             </a>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-          {/* वेबसाइट डेवलपमेंट */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 md:col-span-2">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              वेबसाइट डेवलपमेंट एवं रखरखाव
-            </h3>
-            <p className="text-xl font-semibold text-slate-700 mb-3">
-              क्रिएटिव सॉल्यूशंस
-            </p>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-slate-600">
-                <span>🌐</span>
+        {/* संपादक मंडल */}
+        <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-500 mb-6">
+          <h3 className="text-2xl font-bold text-slate-800 mb-6">
+            संपादक मंडल
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {/* वंदना शुक्ला */}
+            <div className="text-center">
+              <p className="text-xl font-semibold text-slate-700 mb-3">
+                वंदना शुक्ला
+              </p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
                 <a
-                  href="https://www.web-developer-kp.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-orange-600 hover:underline"
+                  href="mailto:abhivyakti1153@gmail.com"
+                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
                 >
-                  web-developer-kp.com
+                  <span>📧</span>
+                  abhivyakti1153@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-slate-600">
-                <span>📞</span>
+            </div>
+
+            {/* डॉ. नृपेंद्र नारायण सिंह */}
+            <div className="text-center">
+              <img
+                src="/1.jpg"
+                alt="डॉ. नृपेंद्र नारायण सिंह"
+                className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
+              />
+              <p className="text-xl font-semibold text-slate-700 mb-2">
+                डॉ. नृपेंद्र नारायण सिंह
+              </p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
                 <a
-                  href="tel:9996865069"
-                  className="text-orange-600 hover:underline"
+                  href="tel:8787037469"
+                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
                 >
-                  9996865069
+                  <span>📞</span>
+                  8787037469
+                </a>
+                <a
+                  href="mailto:dr.nripendra.nns@gmail.com"
+                  className="text-orange-600 hover:underline text-xs flex items-center gap-2"
+                >
+                  <span>📧</span>
+                  dr.nripendra.nns@gmail.com
                 </a>
               </div>
+            </div>
+
+            {/* विक्की मिंज */}
+            <div className="text-center">
+              <img
+                src="/2.JPG"
+                alt="विक्की मिंज"
+                className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
+              />
+              <p className="text-xl font-semibold text-slate-700 mb-2">
+                विक्की मिंज
+              </p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a
+                  href="tel:7050667150"
+                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
+                >
+                  <span>📞</span>
+                  7050667150
+                </a>
+                <a
+                  href="mailto:Vickyminz26@gmail.com"
+                  className="text-orange-600 hover:underline text-xs flex items-center gap-2"
+                >
+                  <span>📧</span>
+                  Vickyminz26@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* वेबसाइट डेवलपमेंट */}
+        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 mb-6">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+            वेबसाइट डेवलपमेंट एवं रखरखाव
+          </h3>
+          <p className="text-xl font-semibold text-slate-700 mb-3">
+            क्रिएटिव सॉल्यूशंस
+          </p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-slate-600">
+              <span>🌐</span>
+              <a
+                href="https://www.web-developer-kp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-600 hover:underline"
+              >
+                web-developer-kp.com
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-slate-600">
+              <span>📞</span>
+              <a
+                href="tel:9996865069"
+                className="text-orange-600 hover:underline"
+              >
+                9996865069
+              </a>
             </div>
           </div>
         </div>
