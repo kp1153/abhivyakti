@@ -129,7 +129,7 @@ export default function Team() {
             {/* विक्की मिंज */}
             <div className="text-center">
               <img
-                src="/2.JPG"
+                src="/2.jpg"
                 alt="विक्की मिंज"
                 className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
               />
