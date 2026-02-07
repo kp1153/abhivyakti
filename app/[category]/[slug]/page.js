@@ -146,6 +146,11 @@ export default async function NewsPage({ params }) {
           className="rounded mb-8"
         />
       )}
+      {post.mainImageCaption && (
+        <p className="text-sm text-gray-600 italic text-center -mt-6 mb-8">
+          {post.mainImageCaption}
+        </p>
+      )}
 
       <div className="prose prose-lg max-w-none">
         <PortableText 

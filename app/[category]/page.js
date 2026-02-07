@@ -1,4 +1,3 @@
-// app/[category]/page.js
 import { getPostsByCategory } from "@/lib/sanity";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,19 +6,19 @@ import { ChevronRight } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
-const displayNames = {
-  kavita: "कविता",
-  kahani: "कहानी",
-  "upanyas-ansh": "उपन्यास अंश",
-  "yatra-vritant": "यात्रा वृतांत",
-  "bal-sahitya": "बाल साहित्य",
-  "hasya-vyangya": "हास्य व्यंग्य",
-  samiksha: "समीक्षा",
-  aatmakatha: "आत्मकथा",
-  pdf: "पीडीएफ",
-  vividh: "विविध",
-  team: "टीम",
-};
+  const displayNames = {
+    kavita: "कविता",
+    kahani: "कहानी",
+    "upanyas-ansh": "उपन्यास अंश",
+    "yatra-vritant": "यात्रा वृतांत",
+    "bal-sahitya": "बाल साहित्य",
+    "hasya-vyangya": "हास्य व्यंग्य",
+    samiksha: "समीक्षा",
+    aatmakatha: "आत्मकथा",
+    pdf: "पीडीएफ",
+    vividh: "विविध",
+    team: "टीम",
+  };
   return displayNames[route] || route;
 };
 
@@ -45,13 +44,13 @@ export default async function CategoryPage({ params }) {
       <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
         {posts?.map((post) => (
           <Link
-            key={post._id}
-            href={`/${safeCategory}/${post.slug.current}`}
+            key={post._id}        
+            href={`/${safeCategory}/${post.slug}`}
             className="group"
           >
             <div className="relative aspect-[3/2] overflow-hidden rounded">
               <Image
-                src={post.mainImage}
+                src={post.mainImageUrl}
                 alt={post.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
