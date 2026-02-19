@@ -80,7 +80,7 @@ export default function Team() {
             संपादक मंडल
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
 
             {/* वंदना शुक्ला */}
             <div className="text-center">
@@ -150,6 +150,27 @@ export default function Team() {
                 >
                   <span>📧</span>
                   Vickyminz26@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* डॉ. आर.डी. आनंद */}
+            <div className="text-center">
+              <img
+                src="/3.jpg"
+                alt="डॉ. आर.डी. आनंद"
+                className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
+              />
+              <p className="text-xl font-semibold text-slate-700 mb-2">
+                डॉ. आर.डी. आनंद
+              </p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a
+                  href="tel:9451203713"
+                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
+                >
+                  <span>📞</span>
+                  94512 03713
                 </a>
               </div>
             </div>
