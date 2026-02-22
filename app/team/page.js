@@ -6,7 +6,6 @@ export default function Team() {
           हमारी टीम
         </h1>
 
-        {/* प्रधान संपादक */}
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 border-t-4 border-orange-600 mb-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-slate-800 mb-2">
@@ -22,10 +21,7 @@ export default function Team() {
               <span className="text-2xl">📧</span>
               <div>
                 <p className="font-semibold text-slate-800">ईमेल</p>
-                <a
-                  href="mailto:abhivyakti1153@rediffmail.com"
-                  className="text-orange-600 hover:underline"
-                >
+                <a href="mailto:abhivyakti1153@rediffmail.com" className="text-orange-600 hover:underline">
                   abhivyakti1153@rediffmail.com
                 </a>
               </div>
@@ -44,10 +40,7 @@ export default function Team() {
               <span className="text-2xl">📞</span>
               <div>
                 <p className="font-semibold text-slate-800">संपर्क</p>
-                <a
-                  href="tel:9454413842"
-                  className="text-orange-600 hover:underline"
-                >
+                <a href="tel:9454413842" className="text-orange-600 hover:underline">
                   9454413842
                 </a>
               </div>
@@ -55,7 +48,6 @@ export default function Team() {
           </div>
         </div>
 
-        {/* विधि सलाहकार */}
         <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 mb-6">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">
             विधि सलाहकार
@@ -65,119 +57,101 @@ export default function Team() {
           </p>
           <div className="flex items-center gap-2 text-slate-600">
             <span>📞</span>
-            <a
-              href="tel:9810357561"
-              className="text-orange-600 hover:underline"
-            >
+            <a href="tel:9810357561" className="text-orange-600 hover:underline">
               98103 57561
             </a>
           </div>
         </div>
 
-        {/* संपादक मंडल */}
         <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-500 mb-6">
           <h3 className="text-2xl font-bold text-slate-800 mb-6">
             संपादक मंडल
           </h3>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
 
-            {/* वंदना शुक्ला */}
             <div className="text-center">
               <p className="text-xl font-semibold text-slate-700 mb-3">
                 वंदना शुक्ला
               </p>
               <div className="flex flex-col items-center gap-2 text-slate-600">
-                <a
-                  href="mailto:abhivyakti1153@gmail.com"
-                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
-                >
+                <a href="mailto:abhivyakti1153@gmail.com" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
                   <span>📧</span>
                   abhivyakti1153@gmail.com
                 </a>
               </div>
             </div>
 
-            {/* डॉ. नृपेंद्र नारायण सिंह */}
             <div className="text-center">
-              <img
-                src="/1.jpg"
-                alt="डॉ. नृपेंद्र नारायण सिंह"
-                className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
-              />
+              <img src="/1.jpg" alt="डॉ. नृपेंद्र नारायण सिंह" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
               <p className="text-xl font-semibold text-slate-700 mb-2">
                 डॉ. नृपेंद्र नारायण सिंह
               </p>
               <div className="flex flex-col items-center gap-2 text-slate-600">
-                <a
-                  href="tel:8787037469"
-                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
-                >
+                <a href="tel:8787037469" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
                   <span>📞</span>
                   8787037469
                 </a>
-                <a
-                  href="mailto:dr.nripendra.nns@gmail.com"
-                  className="text-orange-600 hover:underline text-xs flex items-center gap-2"
-                >
+                <a href="mailto:dr.nripendra.nns@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
                   <span>📧</span>
                   dr.nripendra.nns@gmail.com
                 </a>
               </div>
             </div>
 
-            {/* विक्की मिंज */}
             <div className="text-center">
-              <img
-                src="/2.jpg"
-                alt="विक्की मिंज"
-                className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
-              />
+              <img src="/2.jpg" alt="विक्की मिंज" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
               <p className="text-xl font-semibold text-slate-700 mb-2">
                 विक्की मिंज
               </p>
               <div className="flex flex-col items-center gap-2 text-slate-600">
-                <a
-                  href="tel:7050667150"
-                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
-                >
+                <a href="tel:7050667150" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
                   <span>📞</span>
                   7050667150
                 </a>
-                <a
-                  href="mailto:Vickyminz26@gmail.com"
-                  className="text-orange-600 hover:underline text-xs flex items-center gap-2"
-                >
+                <a href="mailto:Vickyminz26@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
                   <span>📧</span>
                   Vickyminz26@gmail.com
                 </a>
               </div>
             </div>
 
-            {/* डॉ. आर.डी. आनंद */}
             <div className="text-center">
-              <img
-                src="/3.jpg"
-                alt="डॉ. आर.डी. आनंद"
-                className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3"
-              />
+              <img src="/3.jpg" alt="डॉ. आर.डी. आनंद" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
               <p className="text-xl font-semibold text-slate-700 mb-2">
                 डॉ. आर.डी. आनंद
               </p>
               <div className="flex flex-col items-center gap-2 text-slate-600">
-                <a
-                  href="tel:9451203713"
-                  className="text-orange-600 hover:underline text-sm flex items-center gap-2"
-                >
+                <a href="tel:9451203713" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
                   <span>📞</span>
                   94512 03713
                 </a>
               </div>
             </div>
+
+            <div className="text-center">
+              <img src="/4.jpeg" alt="अमित अनुराग पांडेय" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <p className="text-xl font-semibold text-slate-700 mb-2">
+                अमित अनुराग पांडेय
+              </p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="tel:9589150381" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📞</span>
+                  9589150381
+                </a>
+                <a href="mailto:pandeyji9912@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
+                  <span>📧</span>
+                  pandeyji9912@gmail.com
+                </a>
+                <p className="text-xs text-slate-500 mt-2">
+                  26-A व्रद्मान ग्रीन वैली एक्सटेंशन अवधपुरी बीडीए रोड भोपाल मध्य प्रदेश 462022
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* वेबसाइट डेवलपमेंट */}
         <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 mb-6">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">
             वेबसाइट डेवलपमेंट एवं रखरखाव
@@ -188,28 +162,19 @@ export default function Team() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-slate-600">
               <span>🌐</span>
-              <a
-                href="https://www.web-developer-kp.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-orange-600 hover:underline"
-              >
+              <a href="https://www.web-developer-kp.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">
                 web-developer-kp.com
               </a>
             </div>
             <div className="flex items-center gap-2 text-slate-600">
               <span>📞</span>
-              <a
-                href="tel:9996865069"
-                className="text-orange-600 hover:underline"
-              >
+              <a href="tel:9996865069" className="text-orange-600 hover:underline">
                 9996865069
               </a>
             </div>
           </div>
         </div>
 
-        {/* टैगलाइन */}
         <div className="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-slate-300">
           <p className="text-slate-600 italic text-lg">
             "अभिव्यक्ति - समसामयिक साहित्य को समर्पित"
