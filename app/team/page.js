@@ -130,7 +130,7 @@ export default function Team() {
             </div>
 
             <div className="text-center">
-              <img src="/4.jpeg" alt="अमित अनुराग पांडेय" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <img src="/4.jpg" alt="अमित अनुराग पांडेय" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
               <p className="text-xl font-semibold text-slate-700 mb-2">
                 अमित अनुराग पांडेय
               </p>
