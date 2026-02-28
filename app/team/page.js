@@ -1,159 +1,168 @@
 export default function Team() {
-  const boardMembers = [
-    {
-      name: "वंदना शुक्ला",
-      email: "abhivyakti1153@gmail.com",
-      img: null,
-    },
-    {
-      name: "डॉ. नृपेंद्र नारायण सिंह",
-      phone: "8787037469",
-      email: "dr.nripendra.nns@gmail.com",
-      img: null,
-    },
-    {
-      name: "विक्की मिंज",
-      phone: "7050667150",
-      email: "Vickyminz26@gmail.com",
-      img: null,
-    },
-    {
-      name: "डॉ. आर.डी. आनंद",
-      phone: "94512 03713",
-      img: null,
-    },
-    {
-      name: "अमित अनुराग पांडेय",
-      phone: "9589150381",
-      email: "pandeyji9912@gmail.com",
-      address: "26-A वर्द्धमान ग्रीन वैली एक्सटेंशन अवधपुरी, भोपाल म.प्र. 462022",
-      img: null,
-    },
-    {
-      name: "अंकित कुमार मौर्य",
-      role: "साहित्य संवाददाता",
-      phone: "96953 63793",
-      email: "ankitkrmauryaaubhu@gmail.com",
-      img: null,
-    },
-  ];
-
-  const Avatar = ({ name }) => {
-    const initials = name.trim().split(" ").slice(0, 2).map(w => w[0]).join("");
-    return (
-      <div style={{
-        width: 72, height: 72, borderRadius: 10,
-        background: "linear-gradient(135deg, #ea580c, #f97316)",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        margin: "0 auto 12px", fontSize: 22, color: "#fff", fontWeight: 700,
-        boxShadow: "0 4px 12px rgba(234,88,12,0.3)"
-      }}>
-        {initials}
-      </div>
-    );
-  };
-
   return (
-    <div style={{ minHeight: "100vh", background: "linear-gradient(to bottom, #f8fafc, #f1f5f9)", padding: "48px 16px", fontFamily: "'Noto Sans Devanagari', sans-serif" }}>
-      <div style={{ maxWidth: 960, margin: "0 auto" }}>
-
-        {/* Title */}
-        <h1 style={{ fontSize: 40, fontWeight: 800, textAlign: "center", color: "#1e293b", marginBottom: 40 }}>
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-slate-800 mb-12">
           हमारी टीम
         </h1>
 
-        {/* Chief Editor */}
-        <div style={{ background: "#fff", borderRadius: 12, boxShadow: "0 8px 32px rgba(0,0,0,0.08)", padding: "40px", borderTop: "4px solid #dc2626", marginBottom: 24 }}>
-          <div style={{ textAlign: "center", marginBottom: 24 }}>
-            <h2 style={{ fontSize: 28, fontWeight: 700, color: "#1e293b", marginBottom: 6 }}>रामचंद्र शुक्ल</h2>
-            <p style={{ fontSize: 18, color: "#ea580c", fontWeight: 600 }}>प्रधान संपादक</p>
+        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 border-t-4 border-orange-600 mb-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-slate-800 mb-2">
+              रामचंद्र शुक्ल
+            </h2>
+            <p className="text-xl text-orange-600 font-semibold">
+              प्रधान संपादक
+            </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, fontSize: 16, color: "#475569" }}>
-            <div style={{ display: "flex", gap: 12 }}>
-              <span style={{ fontSize: 22 }}>📧</span>
+
+          <div className="space-y-6 text-lg text-slate-700">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">📧</span>
               <div>
-                <p style={{ fontWeight: 600, color: "#1e293b", marginBottom: 2 }}>ईमेल</p>
-                <a href="mailto:abhivyakti1153@rediffmail.com" style={{ color: "#ea580c" }}>abhivyakti1153@rediffmail.com</a>
+                <p className="font-semibold text-slate-800">ईमेल</p>
+                <a href="mailto:abhivyakti1153@rediffmail.com" className="text-orange-600 hover:underline">
+                  abhivyakti1153@rediffmail.com
+                </a>
               </div>
             </div>
-            <div style={{ display: "flex", gap: 12 }}>
-              <span style={{ fontSize: 22 }}>📍</span>
+
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">📍</span>
               <div>
-                <p style={{ fontWeight: 600, color: "#1e293b", marginBottom: 2 }}>पता</p>
+                <p className="font-semibold text-slate-800">पता</p>
                 <p>548 वी/125, विक्रम नगर</p>
                 <p>पोस्ट-मानक नगर, लखनऊ-226011</p>
               </div>
             </div>
-            <div style={{ display: "flex", gap: 12 }}>
-              <span style={{ fontSize: 22 }}>📞</span>
+
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">📞</span>
               <div>
-                <p style={{ fontWeight: 600, color: "#1e293b", marginBottom: 2 }}>संपर्क</p>
-                <a href="tel:9454413842" style={{ color: "#ea580c" }}>9454413842</a>
+                <p className="font-semibold text-slate-800">संपर्क</p>
+                <a href="tel:9454413842" className="text-orange-600 hover:underline">
+                  9454413842
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Legal Advisor */}
-        <div style={{ background: "#fff", borderRadius: 12, boxShadow: "0 4px 16px rgba(0,0,0,0.06)", padding: "24px", borderLeft: "4px solid #ea580c", marginBottom: 20 }}>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1e293b", marginBottom: 12 }}>विधि सलाहकार</h3>
-          <p style={{ fontSize: 18, fontWeight: 600, color: "#334155", marginBottom: 8 }}>एडवोकेट मुर्तजा हुसैन</p>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 mb-6">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">विधि सलाहकार</h3>
+          <p className="text-xl font-semibold text-slate-700 mb-2">एडवोकेट मुर्तजा हुसैन</p>
+          <div className="flex items-center gap-2 text-slate-600">
             <span>📞</span>
-            <a href="tel:9810357561" style={{ color: "#ea580c" }}>98103 57561</a>
+            <a href="tel:9810357561" className="text-orange-600 hover:underline">98103 57561</a>
           </div>
         </div>
 
-        {/* Editorial Board */}
-        <div style={{ background: "#fff", borderRadius: 12, boxShadow: "0 4px 16px rgba(0,0,0,0.06)", padding: "32px", borderLeft: "4px solid #ea580c", marginBottom: 20 }}>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1e293b", marginBottom: 28 }}>संपादक मंडल</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: 28 }}>
-            {boardMembers.map((m, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <Avatar name={m.name} />
-                <p style={{ fontSize: 15, fontWeight: 600, color: "#334155", marginBottom: 4 }}>{m.name}</p>
-                {m.role && <p style={{ fontSize: 12, color: "#ea580c", fontWeight: 600, marginBottom: 6 }}>{m.role}</p>}
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, fontSize: 12 }}>
-                  {m.phone && (
-                    <a href={`tel:${m.phone.replace(/\s/g, "")}`} style={{ color: "#ea580c", display: "flex", alignItems: "center", gap: 4 }}>
-                      📞 {m.phone}
-                    </a>
-                  )}
-                  {m.email && (
-                    <a href={`mailto:${m.email}`} style={{ color: "#ea580c", display: "flex", alignItems: "center", gap: 4, wordBreak: "break-all" }}>
-                      📧 {m.email}
-                    </a>
-                  )}
-                  {m.address && <p style={{ fontSize: 11, color: "#94a3b8", marginTop: 4 }}>{m.address}</p>}
-                </div>
+        <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-500 mb-6">
+          <h3 className="text-2xl font-bold text-slate-800 mb-6">संपादक मंडल</h3>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+
+            <div className="text-center">
+              <p className="text-xl font-semibold text-slate-700 mb-3">वंदना शुक्ला</p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="mailto:abhivyakti1153@gmail.com" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📧</span>abhivyakti1153@gmail.com
+                </a>
               </div>
-            ))}
+            </div>
+
+            <div className="text-center">
+              <img src="/1.jpg" alt="डॉ. नृपेंद्र नारायण सिंह" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <p className="text-xl font-semibold text-slate-700 mb-2">डॉ. नृपेंद्र नारायण सिंह</p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="tel:8787037469" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📞</span>8787037469
+                </a>
+                <a href="mailto:dr.nripendra.nns@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
+                  <span>📧</span>dr.nripendra.nns@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <img src="/2.jpg" alt="विक्की मिंज" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <p className="text-xl font-semibold text-slate-700 mb-2">विक्की मिंज</p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="tel:7050667150" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📞</span>7050667150
+                </a>
+                <a href="mailto:Vickyminz26@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
+                  <span>📧</span>Vickyminz26@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <img src="/3.jpg" alt="डॉ. आर.डी. आनंद" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <p className="text-xl font-semibold text-slate-700 mb-2">डॉ. आर.डी. आनंद</p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="tel:9451203713" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📞</span>94512 03713
+                </a>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <img src="/4.jpg" alt="अमित अनुराग पांडेय" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <p className="text-xl font-semibold text-slate-700 mb-2">अमित अनुराग पांडेय</p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="tel:9589150381" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📞</span>9589150381
+                </a>
+                <a href="mailto:pandeyji9912@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
+                  <span>📧</span>pandeyji9912@gmail.com
+                </a>
+                <p className="text-xs text-slate-500 mt-2">
+                  26-A व्रद्मान ग्रीन वैली एक्सटेंशन अवधपुरी बीडीए रोड भोपाल मध्य प्रदेश 462022
+                </p>
+              </div>
+            </div>
+
+            {/* यह card grid के अंदर है अब */}
+            <div className="text-center">
+              <img src="/ankit.jpeg" alt="अंकित कुमार मौर्य" className="w-24 h-24 rounded-lg object-cover shadow-md mx-auto mb-3" />
+              <p className="text-xl font-semibold text-slate-700 mb-1">अंकित कुमार मौर्य</p>
+              <p className="text-sm text-orange-600 font-semibold mb-3">साहित्य संवाददाता</p>
+              <div className="flex flex-col items-center gap-2 text-slate-600">
+                <a href="tel:9695363793" className="text-orange-600 hover:underline text-sm flex items-center gap-2">
+                  <span>📞</span>96953 63793
+                </a>
+                <a href="mailto:ankitkrmauryaaubhu@gmail.com" className="text-orange-600 hover:underline text-xs flex items-center gap-2">
+                  <span>📧</span>ankitkrmauryaaubhu@gmail.com
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Website Dev */}
-        <div style={{ background: "#fff", borderRadius: 12, boxShadow: "0 4px 16px rgba(0,0,0,0.06)", padding: "24px", borderLeft: "4px solid #ea580c", marginBottom: 20 }}>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1e293b", marginBottom: 12 }}>वेबसाइट डेवलपमेंट एवं रखरखाव</h3>
-          <p style={{ fontSize: 17, fontWeight: 600, color: "#334155", marginBottom: 10 }}>क्रिएटिव सॉल्यूशंस</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500 mb-6">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">वेबसाइट डेवलपमेंट एवं रखरखाव</h3>
+          <p className="text-xl font-semibold text-slate-700 mb-3">क्रिएटिव सॉल्यूशंस</p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-slate-600">
               <span>🌐</span>
-              <a href="https://www.web-developer-kp.com" target="_blank" rel="noopener noreferrer" style={{ color: "#ea580c" }}>web-developer-kp.com</a>
+              <a href="https://www.web-developer-kp.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">
+                web-developer-kp.com
+              </a>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div className="flex items-center gap-2 text-slate-600">
               <span>📞</span>
-              <a href="tel:9996865069" style={{ color: "#ea580c" }}>9996865069</a>
+              <a href="tel:9996865069" className="text-orange-600 hover:underline">9996865069</a>
             </div>
           </div>
         </div>
 
-        {/* Footer */}
-        <div style={{ background: "#fff", borderRadius: 12, boxShadow: "0 4px 16px rgba(0,0,0,0.06)", padding: "24px", textAlign: "center", borderTop: "4px solid #cbd5e1" }}>
-          <p style={{ color: "#64748b", fontStyle: "italic", fontSize: 17 }}>
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-slate-300">
+          <p className="text-slate-600 italic text-lg">
             "अभिव्यक्ति - समसामयिक साहित्य को समर्पित"
           </p>
         </div>
-
       </div>
     </div>
   );
