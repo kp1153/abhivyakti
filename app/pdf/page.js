@@ -1,34 +1,33 @@
+import Link from "next/link";
+import { BookOpen } from "lucide-react";
+
 export default function PDFPage() {
+  const books = [
+    {
+      slug: "alanghya-hai-prem",
+      title: "अलंघ्य है प्रेम",
+      author: "Unknown",
+      cover: null,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-slate-800 mb-8">
-          पीडीएफ अंक
-        </h1>
+        <h1 className="text-4xl font-bold text-center text-slate-800 mb-2">पत्रिका अंक</h1>
+        <p className="text-center text-gray-500 mb-10 text-sm">पढ़ने के लिए अंक चुनें</p>
 
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 text-center">
-          <div className="mb-8">
-            <span className="text-8xl">📅</span>
-          </div>
-          
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">
-            प्रवेशांक
-          </h2>
-          
-          <p className="text-2xl text-orange-600 font-semibold mb-6">
-            मार्च 2025 में उपलब्ध होगा
-          </p>
-          
-          <p className="text-lg text-slate-600 leading-relaxed">
-            अभिव्यक्ति का पहला पीडीएफ अंक मार्च 2025 में प्रकाशित होगा। 
-            कृपया हमारे साथ जुड़े रहें।
-          </p>
-
-          <div className="mt-10 pt-8 border-t border-slate-200">
-            <p className="text-slate-600 italic">
-              "अभिव्यक्ति - समसामयिक साहित्य को समर्पित"
-            </p>
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {books.map((book) => (
+            <Link key={book.slug} href={`/reader/${book.slug}`}
+              className="group border border-amber-100 rounded-xl overflow-hidden hover:shadow-lg transition-shadow bg-white p-6 flex items-center justify-between">
+              <div>
+                <h2 className="font-bold text-stone-800 group-hover:text-[#006680]">{book.title}</h2>
+                <p className="text-sm text-gray-400 mt-1">{book.author}</p>
+              </div>
+              <BookOpen size={20} className="text-[#006680] shrink-0" />
+            </Link>
+          ))}
         </div>
       </div>
     </div>
