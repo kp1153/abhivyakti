@@ -207,7 +207,7 @@ export const schema = {
               { title: "हास्य व्यंग्य", value: "हास्य व्यंग्य" },
               { title: "समीक्षा", value: "समीक्षा" },
               { title: "आत्मकथा", value: "आत्मकथा" },
-              { title: "पीडीएफ", value: "पीडीएफ" },
+              { title: "ई-पुस्तक", value: "ई-पुस्तक" },
               { title: "विविध", value: "विविध" },
             ],
           },
@@ -223,17 +223,17 @@ export const schema = {
             maxLength: 96,
             slugify: (input) => {
               const slugMap = {
-                "कविता": "kavita",
-                "कहानी": "kahani",
+                कविता: "kavita",
+                कहानी: "kahani",
                 "उपन्यास अंश": "upanyas-ansh",
                 "यात्रा वृतांत": "yatra-vritant",
                 "बाल साहित्य": "bal-sahitya",
                 "हास्य व्यंग्य": "hasya-vyangya",
-                "समीक्षा": "samiksha",
-                "आत्मकथा": "aatmakatha",
-                "पीडीएफ": "pdf",
-                "विविध": "vividh",
-                "टीम": "team",
+                समीक्षा: "samiksha",
+                आत्मकथा: "aatmakatha",
+                "ई-पुस्तक": "epub",
+                विविध: "vividh",
+                टीम: "team",
               };
               return slugMap[input] || hindiToRoman(input);
             },
@@ -246,6 +246,51 @@ export const schema = {
           title: "name",
           subtitle: "slug.current",
         },
+      },
+    },
+
+    {
+      name: "epub",
+      title: "ई-पुस्तक",
+      type: "document",
+      fields: [
+        {
+          name: "title",
+          title: "शीर्षक",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "author",
+          title: "लेखक",
+          type: "string",
+        },
+        {
+          name: "coverImage",
+          title: "आवरण चित्र",
+          type: "string",
+          components: {
+            input: CloudinaryImageInput,
+          },
+        },
+        {
+          name: "epubFile",
+          title: "EPUB फ़ाइल",
+          type: "file",
+          options: {
+            accept: ".epub",
+          },
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "publishedAt",
+          title: "प्रकाशन तिथि",
+          type: "datetime",
+          initialValue: () => new Date().toISOString(),
+        },
+      ],
+      preview: {
+        select: { title: "title", subtitle: "author" },
       },
     },
 
