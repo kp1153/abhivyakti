@@ -1,28 +1,12 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { ReactReader } from "react-reader"
-
-export default function EpubReader() {
-  const [location, setLocation] = useState(null)
-  const [url, setUrl] = useState(null)
-
-  useEffect(() => {
-    fetch("/api/epub")
-      .then((res) => res.arrayBuffer())
-      .then((buffer) => setUrl(buffer))
-  }, [])
-
-  if (!url) return <div>लोड हो रहा है...</div>
-
-  return (
-    <div style={{ height: "100vh", userSelect: "none" }}>
-      <ReactReader
-        url={url}
-        location={location}
-        locationChanged={(epubcfi) => setLocation(epubcfi)}
-        epubOptions={{ allowScriptedContent: true }}
-      />
-    </div>
+export async function GET() {
+  const response = await fetch(
+    "https://cdn.sanity.io/files/sqcig83p/production/06d43efb1d70e8691a3bf16d2d7d612304f07125.epub"
   )
+  const buffer = await response.arrayBuffer()
+  return new Response(buffer, {
+    headers: {
+      "Content-Type": "application/epub+zip",
+      "Access-Control-Allow-Origin": "*",
+    },
+  })
 }
