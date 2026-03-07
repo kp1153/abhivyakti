@@ -13,7 +13,7 @@ export default function EpubReader() {
       .then((buffer) => setUrl(buffer))
   }, [])
 
-  if (!url) return <div style={{ padding: "20px" }}>लोड हो रहा है...</div>
+  if (!url) return <div style={{ padding: "20px" }}>Loading...</div>
 
   return (
     <div style={{ height: "100vh" }}>
