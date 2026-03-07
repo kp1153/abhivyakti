@@ -1,41 +1,27 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState, useEffect } from "react"
+import { ReactReader } from "react-reader"
 
 export default function EpubReader() {
-  const viewerRef = useRef(null)
-  const [loading, setLoading] = useState(true)
+  const [location, setLocation] = useState(null)
+  const [url, setUrl] = useState(null)
 
   useEffect(() => {
-    if (!viewerRef.current) return
-
-    let rendition
-
     fetch("/api/epub")
       .then((res) => res.arrayBuffer())
-      .then((buffer) => {
-        import("epubjs").then((module) => {
-          const ePub = module.default
-          const book = ePub(buffer)
-          rendition = book.renderTo(viewerRef.current, {
-            width: "100%",
-            height: "100%",
-            allowScriptedContent: true,
-          })
-          rendition.display()
-          setLoading(false)
-        })
-      })
-
-    return () => {
-      if (rendition) rendition.destroy()
-    }
+      .then((buffer) => setUrl(buffer))
   }, [])
 
+  if (!url) return <div style={{ padding: "20px" }}>लोड हो रहा है...</div>
+
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      {loading && <div style={{ padding: "20px" }}>लोड हो रहा है...</div>}
-      <div ref={viewerRef} style={{ width: "100%", height: "100%" }} />
+    <div style={{ height: "100vh" }}>
+      <ReactReader
+        url={url}
+        location={location}
+        locationChanged={(epubcfi) => setLocation(epubcfi)}
+      />
     </div>
   )
 }
