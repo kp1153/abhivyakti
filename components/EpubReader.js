@@ -9,7 +9,7 @@ export default function EpubReader() {
   return (
     <div style={{ height: "100vh", userSelect: "none" }}>
       <ReactReader
-        url="https://cdn.sanity.io/files/sqcig83p/production/b4f2c5643731abd06bd5f8b9205779c14697eaeb.epub"
+        url="https://cdn.sanity.io/files/sqcig83p/production/24c4598585ed377da9fbe23653a85247a021c047.epub"
         location={location}
         locationChanged={(epubcfi) => setLocation(epubcfi)}
         epubOptions={{ allowScriptedContent: true }}
