@@ -18,7 +18,7 @@ export default function Navbar() {
     { href: "/hasya-vyangya", label: "हास्य व्यंग्य" },
     { href: "/samiksha", label: "समीक्षा" },
     { href: "/aatmakatha", label: "आत्मकथा" },
-    { href: "/pdf", label: "पीडीएफ" },
+    { href: "/epub", label: "ई-पुस्तक" },
     { href: "/vividh", label: "विविध" },
     { href: "/team", label: "टीम" },
   ];
