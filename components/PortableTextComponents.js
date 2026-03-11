@@ -6,13 +6,15 @@ const PortableTextComponents = {
       if (!value?.url) return null;
       return (
         <figure className="my-8">
-          <div className="relative w-full aspect-video">
+          <div className="relative w-full">
             <Image
               src={value.url}
               alt={value.caption || "Image"}
-              fill
+              width={1200}
+              height={800}
               sizes="(max-width: 768px) 100vw, 800px"
-              className="object-cover rounded"
+              style={{ width: "100%", height: "auto" }}
+              className="rounded"
             />
           </div>
           {value.caption && (
@@ -27,7 +29,8 @@ const PortableTextComponents = {
     youtube: ({ value }) => {
       if (!value?.url) return null;
       const getYouTubeId = (url) => {
-        const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+        const regex =
+          /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
         const match = url.match(regex);
         return match ? match[1] : null;
       };
@@ -57,17 +60,19 @@ const PortableTextComponents = {
       if (!value?.images || value.images.length === 0) return null;
       return (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
-          {value.images.map((img, idx) => (
-            <div key={idx} className="relative aspect-square">
-              <Image
-                src={img.url}
-                alt={img.alt || `Gallery image ${idx + 1}`}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover rounded"
-              />
-            </div>
-          ))}
+          {value.images
+            .filter((img) => img?.url)
+            .map((img, idx) => (
+              <div key={idx} className="relative aspect-square">
+                <Image
+                  src={img.url}
+                  alt={img.alt || `Gallery image ${idx + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover rounded"
+                />
+              </div>
+            ))}
         </div>
       );
     },
