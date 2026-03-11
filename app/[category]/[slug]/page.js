@@ -11,19 +11,19 @@ import ViewsCounter from "@/components/ViewsCounter";
 export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
-const displayNames = {
-  kavita: "कविता",
-  kahani: "कहानी",
-  "upanyas-ansh": "उपन्यास अंश",
-  "yatra-vritant": "यात्रा वृतांत",
-  "bal-sahitya": "बाल साहित्य",
-  "hasya-vyangya": "हास्य व्यंग्य",
-  samiksha: "समीक्षा",  // ✅ ये सही करो
-  aatmakatha: "आत्मकथा",
-  pdf: "पीडीएफ",
-  vividh: "विविध",  // ✅ ये भी add करो
-  team: "टीम",
-};
+  const displayNames = {
+    kavita: "कविता",
+    kahani: "कहानी",
+    "upanyas-ansh": "उपन्यास अंश",
+    "yatra-vritant": "यात्रा वृतांत",
+    "bal-sahitya": "बाल साहित्य",
+    "hasya-vyangya": "हास्य व्यंग्य",
+    samiksha: "समीक्षा", // ✅ ये सही करो
+    aatmakatha: "आत्मकथा",
+    pdf: "पीडीएफ",
+    vividh: "विविध", // ✅ ये भी add करो
+    team: "टीम",
+  };
   return displayNames[route] || route;
 };
 
@@ -33,14 +33,15 @@ export async function generateMetadata({ params }) {
   const safeSlug = decodeURIComponent(slug);
 
   const post = await getPostBySlugAndCategory(safeSlug, safeCategory);
-  
+
   if (!post) {
     return { title: "Not Found" };
   }
 
   const categoryDisplayName = getCategoryDisplayName(safeCategory);
   const description = `${post.title} - ${categoryDisplayName} | अभिव्यक्ति पर पढ़ें`;
-  const imageUrl = post.mainImageUrl || 'https://www.abhivyakti.xyz/og-image.png';
+  const imageUrl =
+    post.mainImageUrl || "https://www.abhivyakti.xyz/og-image.png";
   const pageUrl = `https://www.abhivyakti.xyz/${safeCategory}/${safeSlug}`;
 
   return {
@@ -56,22 +57,22 @@ export async function generateMetadata({ params }) {
           width: 1200,
           height: 630,
           alt: post.title,
-        }
+        },
       ],
       url: pageUrl,
-      type: 'article',
-      siteName: 'अभिव्यक्ति',
-      locale: 'hi_IN',
+      type: "article",
+      siteName: "अभिव्यक्ति",
+      locale: "hi_IN",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: `${post.title} | अभिव्यक्ति`,
       description: description,
       images: [imageUrl],
     },
     alternates: {
       canonical: pageUrl,
-    }
+    },
   };
 }
 
@@ -99,7 +100,7 @@ export default async function NewsPage({ params }) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <a 
+      <a
         href={`https://www.abhivyakti.xyz/studio/structure/post;${post._id}`}
         target="_blank"
         rel="noopener noreferrer"
@@ -107,7 +108,7 @@ export default async function NewsPage({ params }) {
       >
         <Edit size={18} />
         एडिट करें
-      </a>    
+      </a>
 
       <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6 border-b pb-3">
         <Link href="/" className="hover:text-[#006680]">
@@ -138,14 +139,21 @@ export default async function NewsPage({ params }) {
       </div>
 
       {post.mainImageUrl && (
-        <Image
-          src={post.mainImageUrl}
-          alt="main image"
-          width={1200}
-          height={700}
-          sizes="(max-width: 768px) 100vw, 1200px"
-          className="rounded mb-8"
-        />
+        <div className="w-full mb-8">
+          <Image
+            src={post.mainImageUrl}
+            alt="main image"
+            width={1200}
+            height={800}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+            className="rounded"
+            priority
+          />
+        </div>
       )}
       {post.mainImageCaption && (
         <p className="text-sm text-gray-600 italic text-center -mt-6 mb-8">
@@ -154,8 +162,8 @@ export default async function NewsPage({ params }) {
       )}
 
       <div className="prose prose-lg max-w-none">
-        <PortableText 
-          value={post.content} 
+        <PortableText
+          value={post.content}
           components={PortableTextComponents}
         />
       </div>
